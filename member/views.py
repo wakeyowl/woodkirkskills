@@ -9,7 +9,7 @@ from django.views.generic import ListView
 from registration.backends.simple.views import RegistrationView
 from django.views.generic.edit import UpdateView
 
-from member.forms import UserMemberForm, UserMemberAddChildForm
+from member.forms import UserMemberForm
 from member.models import UserMember, Player, Contact, Badges, BadgeAssesments
 
 
@@ -175,65 +175,6 @@ def add_member(request):
             print(form.errors)
 
     return render(request, 'member/add_member.html', {'form': form})
-
-
-class UserMemberUpdate(UpdateView):
-    model = UserMember
-    form_class = UserMemberForm
-    fields = ['address1', 'address2', 'city', 'postcode', 'mobile_phone']
-    template_name = 'member/usermember_update_form.html'
-
-    def get_object(self, *args, **kwargs):
-        user = get_object_or_404(User, pk=self.kwargs['pk'])
-
-        return user.userprofile
-
-    def get_success_url(self, *args, **kwargs):
-        return reverse("index.html")
-
-
-@login_required
-def profile(request, username):
-    try:
-        user = User.objects.get(username=username)
-    except User.DoesNotExist:
-        return redirect('index')
-
-    player_list = Player.objects.filter(member_parent__username=user)
-    address_list = UserMember.objects.filter(member_parent__username=user)
-    context_dict = {'player': player_list, 'address': address_list}
-
-    userprofile = User.objects.get(username=username)
-    form = UserMemberAddChildForm({})
-
-    return render(request, 'member/profile.html', context=context_dict)
-
-
-@login_required
-def add_player(request, username):
-    try:
-        user = User.objects.get(username=username)
-    except User.DoesNotExist:
-        return redirect('index')
-
-    form = UserMemberAddChildForm()
-
-    if request.method == 'POST':
-        form = UserMemberAddChildForm(request.POST)
-        if form.is_valid():
-            if user:
-                page = form.save(commit=False)
-                page.member_parent = user
-                page.save()
-
-                return profile(request, username)
-
-        else:
-            print(form.errors)
-
-    context_dict = {'form': form, 'member_parent_id': user}
-
-    return render(request, 'member/add_player.html', context_dict)
 
 
 class ListContactView(ListView):

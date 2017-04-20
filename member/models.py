@@ -6,11 +6,12 @@ from django.template.defaultfilters import slugify
 class UserMember(models.Model):
     user = models.OneToOneField(User)
     full_name = models.CharField(max_length=128, unique=True, null=True)
-    address1 = models.CharField(max_length=128, null=True)
-    address2 = models.CharField(max_length=128, null=True)
-    city = models.CharField(max_length=128, null=True)
-    postcode = models.CharField(max_length=12, null=True)
-    mobile_phone = models.CharField(max_length=12, null=True, blank=True)
+    favourite_player = models.CharField(max_length=128, null=True)
+    favourite_team = models.CharField(max_length=128, null=True)
+    # address2 = models.CharField(max_length=128, null=True)
+    # city = models.CharField(max_length=128, null=True)
+    # postcode = models.CharField(max_length=12, null=True)
+    # mobile_phone = models.CharField(max_length=12, null=True, blank=True)
     slug = models.SlugField(unique=True)
     CONSENT_CHOICES = ((True, 'Yes'), (False, 'No'))
     consent = models.NullBooleanField(choices=CONSENT_CHOICES,
@@ -107,7 +108,6 @@ class BadgeAssesments(models.Model):
 
     def __str__(self):
         return self.description
-
 
 
 class BadgeAwards(models.Model):
