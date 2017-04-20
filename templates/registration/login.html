@@ -1,0 +1,21 @@
+{% extends "member/base_bootstrap.html" %}
+{% load bootstrap3 %}
+{% block title_block %}
+    Login
+{% endblock %}
+
+{% block body_block %}
+
+    <div class="jumbotron">
+        <h4 class="display-5">Login</h4>
+    </div>
+
+    <form class="form-signin" role="form" method="post" action=".">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        </br>
+    <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+    </form>
+
+    <p>Not a member? <a href="{% url 'registration_register' %}">Register</a>!</p>
+{% endblock %}

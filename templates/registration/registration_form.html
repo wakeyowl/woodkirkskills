@@ -1,0 +1,28 @@
+{% extends 'member/base_bootstrap.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block title_block %}
+    Register
+{% endblock %}
+
+{% block body_block %}
+
+    <div class="jumbotron">
+        <h4 class="display-5">Parent Registration</h4>
+
+    <div class="container">
+        As a parent you need to register with Woodkirk Valley FC as a social member, this allows us
+        to safeguard your children's data.
+    </div>
+    </div>
+
+    <form role="form" method="post" action=".">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        </br>
+
+        <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+
+    </form>
+
+{% endblock %}

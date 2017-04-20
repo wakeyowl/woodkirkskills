@@ -1,0 +1,29 @@
+{% extends 'member/base_bootstrap.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title_block %}
+    Register a New Player
+{% endblock %}
+
+{% block body_block %}
+
+    <div class="jumbotron">
+        <h4 class="display-6">Player Registration</h4>
+
+        <div class="container">
+            Register your child
+        </div>
+    </div>
+    <div class="form-group">
+        <form role="form" id="player_form" method="post" action="/member/profile/{{ user.username }}/add_player/">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            </br>
+
+            <button class="btn btn-primary" type="submit" name="submit">Register Player!</button>
+
+        </form>
+    </div>
+
+{% endblock %}
