@@ -486,7 +486,7 @@
       "category": "Physical",
       "levels": "S",
       "pageUrl": "/member/skills_matrix/physical/dribbling/",
-      "iconUrl": "/images/badges/heading-silver.png",
+      "iconUrl": "/images/badges/dribbling-silver.png",
       "description": "Dribbling Silver"
     }
   },
@@ -498,7 +498,7 @@
       "category": "Physical",
       "levels": "G",
       "pageUrl": "/member/skills_matrix/physical/dribbling/",
-      "iconUrl": "/images/badges/heading-gold.png",
+      "iconUrl": "/images/badges/dribbling-gold.png",
       "description": "Dribbling Gold"
     }
   },
@@ -642,7 +642,7 @@
       "category": "Physical",
       "levels": "B",
       "pageUrl": "/member/skills_matrix/physical/dribbling/",
-      "iconUrl": "/images/badges/heading-bronze.png",
+      "iconUrl": "/images/badges/dribbling-bronze.png",
       "description": "Dribbling Bronze"
     }
   }

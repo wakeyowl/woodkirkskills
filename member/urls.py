@@ -6,8 +6,9 @@ from member import views
 urlpatterns = [
     # url(r'^$', member.views.ListContactView.as_view(),
     # name='contacts-list', ),
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.skills_matrix, name='index'),
     url(r'^mybadges/$', views.mybadges, name='mybadges'),
+    url(r'^allbadges/$', views.allbadges, name='allbadges'),
     url(r'^skills_matrix/$', views.skills_matrix, name='skills_matrix'),
     url(r'^skills_matrix/merit_badges/$', views.merit_badges, name='merit_badges'),
     url(r'^skills_matrix/technical/$', views.technical, name='technical'),

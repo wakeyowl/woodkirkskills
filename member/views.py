@@ -80,15 +80,34 @@ def merit_badges(request):
     response = render(request, 'member/merit_badges.html', context=context_dict)
     return response
 
+
 def mybadges(request):
+    context_dict = get_badge_dictionaries(request, True)
+    response = render(request, 'member/my_badges.html', context=context_dict)
+    return response
 
+
+def allbadges(request):
+    context_dict = get_badge_dictionaries(request, False)
+    response = render(request, 'member/allbadges.html', context=context_dict)
+    return response
+
+
+def get_badge_dictionaries(request, current_user_only):
     # get the current user and filter the query
-    current_user = request.user.pk
-    # inner join the badges -> badgeawards
-    q = Badges.objects.exclude(badgeawards__userId__badgeawards__isnull=True)
-    # filter only the current users badges
-    q3 = q.filter(badgeawards__userId=current_user)
 
+    # inner join the badges -> badgeawards
+
+    # filter only the current users badges
+    if current_user_only:
+        current_user = request.user.pk
+        q = Badges.objects.exclude(badgeawards__userId__badgeawards__isnull=True)
+        q3 = q.filter(badgeawards__userId=current_user)
+
+    else:
+        q3 = Badges.objects.all()
+
+    # q3 = q.filter(badgeawards__userId=current_user)
     # Create a dict of category levels and counts used in custom_tags
     badge_counts = {}
     for badge_cat in q3:
@@ -104,11 +123,10 @@ def mybadges(request):
     bronze_badge_urls = q3.filter(levels='B')
     silver_badge_urls = q3.filter(levels='S')
     gold_badge_urls = q3.filter(levels='G')
-
     # chuck it all in some context dictionaries for the render object
-    context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls, 'goldbadges': gold_badge_urls,  'meritbadges': merit_badge_urls}
-    response = render(request, 'member/my_badges.html', context=context_dict)
-    return response
+    context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
+                    'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls}
+    return context_dict
 
 
 def skills_matrix(request):
