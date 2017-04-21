@@ -77,13 +77,13 @@ def merit_badges(request):
     meritbadge_list = Badges.objects.filter(levels='M')
     badgeassessment_list = BadgeAssesments.objects.all()
     context_dict = {'merit': meritbadge_list, 'meritassessments': badgeassessment_list}
-    response = render(request, 'member/merit_badges.html', context=context_dict)
+    response = render(request, 'member/skillchallengebadges.html', context=context_dict)
     return response
 
 
 def mybadges(request):
     context_dict = get_badge_dictionaries_levels(request, True)
-    response = render(request, 'member/my_badges.html', context=context_dict)
+    response = render(request, 'member/mybadges.html', context=context_dict)
     return response
 
 
