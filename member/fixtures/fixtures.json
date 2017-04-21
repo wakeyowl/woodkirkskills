@@ -339,7 +339,7 @@
     "pk": 11,
     "fields": {
       "name": "Kickups",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "B",
       "pageUrl": "/member/skills_matrix/psychological/kickups/",
       "iconUrl": "/images/badges/kickups-bronze.png",
@@ -351,7 +351,7 @@
     "pk": 12,
     "fields": {
       "name": "Kickups",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "S",
       "pageUrl": "/member/skills_matrix/psychological/kickups/",
       "iconUrl": "/images/badges/kickups-silver.png",
@@ -363,7 +363,7 @@
     "pk": 13,
     "fields": {
       "name": "Kickups",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "G",
       "pageUrl": "/member/skills_matrix/psychological/kickups/",
       "iconUrl": "/images/badges/kickups-gold.png",
@@ -375,7 +375,7 @@
     "pk": 14,
     "fields": {
       "name": "Toe Taps",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "B",
       "pageUrl": "/member/skills_matrix/psychological/toetaps/",
       "iconUrl": "/images/badges/toetaps-bronze.png",
@@ -387,7 +387,7 @@
     "pk": 15,
     "fields": {
       "name": "Toe Taps",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "S",
       "pageUrl": "/member/skills_matrix/psychological/toetaps/",
       "iconUrl": "/images/badges/toetaps-silver.png",
@@ -399,7 +399,7 @@
     "pk": 16,
     "fields": {
       "name": "Toe Taps",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "G",
       "pageUrl": "/member/skills_matrix/psychological/toetaps/",
       "iconUrl": "/images/badges/toetaps-gold.png",
@@ -411,7 +411,7 @@
     "pk": 17,
     "fields": {
       "name": "Cryuff Turns",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "M",
       "pageUrl": "/member/skills_matrix/psychological/cryuffturns/",
       "iconUrl": "/images/badges/cryuffturns-merit.png",
@@ -423,7 +423,7 @@
     "pk": 18,
     "fields": {
       "name": "Dragback Turns",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "M",
       "pageUrl": "/member/skills_matrix/psychological/dragbackturns/",
       "iconUrl": "/images/badges/dragbackturns-merit.png",
@@ -435,7 +435,7 @@
     "pk": 19,
     "fields": {
       "name": "Hook Turns",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "M",
       "pageUrl": "/member/skills_matrix/psychological/hookturns/",
       "iconUrl": "/images/badges/hookturns-merit.png",
@@ -447,7 +447,7 @@
     "pk": 20,
     "fields": {
       "name": "Ronaldo-chop Turns",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "M",
       "pageUrl": "/member/skills_matrix/psychological/ronaldochopturns/",
       "iconUrl": "/images/badges/ronaldochop-merit.png",
@@ -459,7 +459,7 @@
     "pk": 21,
     "fields": {
       "name": "Stepover Turns",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "M",
       "pageUrl": "/member/skills_matrix/psychological/stepoverturns/",
       "iconUrl": "/images/badges/stepoverturns-merit.png",
@@ -471,7 +471,7 @@
     "pk": 22,
     "fields": {
       "name": "Zidane Turns",
-      "category": "Technical",
+      "category": "Psychological",
       "levels": "M",
       "pageUrl": "/member/skills_matrix/psychological/zidaneturns/",
       "iconUrl": "/images/badges/zidaneturns-merit.png",

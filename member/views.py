@@ -82,22 +82,20 @@ def merit_badges(request):
 
 
 def mybadges(request):
-    context_dict = get_badge_dictionaries(request, True)
+    context_dict = get_badge_dictionaries_levels(request, True)
     response = render(request, 'member/my_badges.html', context=context_dict)
     return response
 
 
 def allbadges(request):
-    context_dict = get_badge_dictionaries(request, False)
+    context_dict = get_badge_dictionaries_levels(request, False)
     response = render(request, 'member/allbadges.html', context=context_dict)
     return response
 
 
-def get_badge_dictionaries(request, current_user_only):
+def get_badge_dictionaries_levels(request, current_user_only):
     # get the current user and filter the query
-
     # inner join the badges -> badgeawards
-
     # filter only the current users badges
     if current_user_only:
         current_user = request.user.pk
@@ -127,6 +125,41 @@ def get_badge_dictionaries(request, current_user_only):
     context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
                     'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls}
     return context_dict
+
+
+def get_badge_dictionaries_categories(request, current_user_only):
+    # get the current user and filter the query
+    # inner join the badges -> badgeawards
+    # filter only the current users badges
+    if current_user_only:
+        current_user = request.user.pk
+        q = Badges.objects.exclude(badgeawards__userId__badgeawards__isnull=True)
+        q3 = q.filter(badgeawards__userId=current_user)
+
+    else:
+        q3 = Badges.objects.all()
+
+    # q3 = q.filter(badgeawards__userId=current_user)
+    # Create a dict of category levels and counts used in custom_tags
+    badge_counts = {}
+    for badge_cat in q3:
+        if not badge_counts.has_key(badge_cat.category):
+            badge_counts[badge_cat.category] = {
+                'item': badge_cat.category,
+                'count': 0
+            }
+        badge_counts[badge_cat.category]['count'] += 1
+
+    # Get Lists of all urls for each section
+    technical_badge_urls = q3.filter(category='Technical')
+    physical_badge_urls = q3.filter(category='Physical')
+    social_badge_urls = q3.filter(category='Social')
+    psychological_badge_urls = q3.filter(category='Psychological')
+    # chuck it all in some context dictionaries for the render object
+    context_dict = {'badgecounts': badge_counts, 'technicalbadges': technical_badge_urls, 'physicalbadges': physical_badge_urls,
+                    'socialbadges': social_badge_urls, 'psychologicalbadges': psychological_badge_urls}
+    return context_dict
+
 
 
 def skills_matrix(request):
@@ -160,22 +193,26 @@ def leadership(request):
 
 
 def technical(request):
-    response = render(request, 'member/technical.html', {})
+    context_dict = get_badge_dictionaries_categories(request, False)
+    response = render(request, 'member/technical.html', context=context_dict)
     return response
 
 
 def social(request):
-    response = render(request, 'member/social.html', {})
+    context_dict = get_badge_dictionaries_categories(request, False)
+    response = render(request, 'member/social.html', context=context_dict)
     return response
 
 
 def physical(request):
-    response = render(request, 'member/physical.html', {})
+    context_dict = get_badge_dictionaries_categories(request, False)
+    response = render(request, 'member/physical.html', context_dict)
     return response
 
 
 def psychological(request):
-    response = render(request, 'member/psychological.html', {})
+    context_dict = get_badge_dictionaries_categories(request, False)
+    response = render(request, 'member/psychological.html', context_dict)
     return response
 
 

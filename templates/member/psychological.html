@@ -1,5 +1,7 @@
 {% extends 'member/base_bootstrap.html' %}
 {% load staticfiles %}
+{% load member_template_tags %}
+
 {% block title_block %}
     Index
 {% endblock %}
@@ -24,92 +26,19 @@
         </div>
     </div>
 
+ {% if psychologicalbadges %}
 
-    <div class="container">
+        <h4>Psychological Badges ({{ badgecounts| getBadgeCount:"Psychological" }}) </h4>
+        <div class="list-group">
+        </br>
+        <li class="list-group-item">
+            {% for badge in psychologicalbadges %}
 
-        <div class="row">
+                <img src={% static badge.iconUrl %} height="150"%>
 
-           <div class="col-md-4">
-                <div class="threerowbody text-center">
-                    <a href="kickups">
-                        <img src="{% static "images/badges/kickups-bronze.png" %}"
-                             alt=""
-                             width="125"></a></div>
-                <div class="threerowfooter text-center"><p>Kickups Bronze</p></div>
-            </div>
+            {% endfor %}
+        </li>
+    {% else %}
+    {% endif %}
 
-            <div class="col-md-4">
-                <div class="threerowbody text-center">
-                    <a href="kickups">
-                        <img src="{% static "images/badges/kickups-silver.png" %}"
-                             alt=""
-                             width="125"></a></div>
-                <div class="threerowfooter text-center"><p>Kickups Silver</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center">
-                    <a href="kickups">
-                        <img src="{% static "images/badges/kickups-gold.png" %}"
-                             alt=""
-                             width="125"></a></div>
-                <div class="threerowfooter text-center"><p>Kickups Gold</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/toetaps-bronze.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Toe Taps Bronze</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/toetaps-silver.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Toe Taps Silver</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/toetaps-gold.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Toe Taps Gold</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/cryuffturns-merit.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Cryuff Turns</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/dragbackturns-merit.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Dragback Turns</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/hookturns-merit.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Hook Turns</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/ronaldochop-merit.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Ronaldo Chop Turns</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/stepoverturns-merit.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Step Over Turns</p></div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="threerowbody text-center"><img src="{% static "images/badges/zidaneturns-merit.png" %}" alt=""
-                                               width="125"></div>
-                <div class="threerowfooter text-center"><p>Zidane Turns</p></div>
-            </div>
-
-        </div>
-    </div>
 {% endblock %}
