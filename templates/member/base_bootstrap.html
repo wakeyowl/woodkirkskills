@@ -45,15 +45,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href=""><i>User: </i>{{ user.username }}</a>
                 </li>
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{% url 'profile' user.username %}">Profile</a>#}
-{#                </li>#}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'mybadges' %}">My Badges</a>
-                </li>
+                {#                <li class="nav-item">#}
+                {#                    <a class="nav-link" href="{% url 'profile' user.username %}">Profile</a>#}
+                {#                </li>#}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'skills_matrix' %}">Skills Matrix</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mybadges' %}">My Badges</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'allbadges' %}">All Badges</a>
                 </li>

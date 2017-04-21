@@ -6,7 +6,7 @@ register = template.Library()
 
 @register.filter(name='getBadgeCount')
 def getBadgeCount(list, key):
-    if list and isinstance(list, dict):
+    if list and isinstance(list, dict) and list.get(key):
         firstlist = list.get(key)
         return firstlist.get('count')
 

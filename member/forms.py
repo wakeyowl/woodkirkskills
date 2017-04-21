@@ -1,7 +1,7 @@
 from django import forms
 from django.views.generic.edit import UpdateView
 from django.utils.safestring import mark_safe
-from member.models import UserMember, Player
+from member.models import UserMember
 
 
 class UserMemberForm(forms.ModelForm):

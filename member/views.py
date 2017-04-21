@@ -10,7 +10,7 @@ from registration.backends.simple.views import RegistrationView
 from django.views.generic.edit import UpdateView
 
 from member.forms import UserMemberForm
-from member.models import UserMember, Player, Contact, Badges, BadgeAssesments
+from member.models import UserMember, Contact, Badges, BadgeAssesments
 
 
 class WoodkirkRegistrationView(RegistrationView):
