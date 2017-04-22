@@ -39,9 +39,9 @@
         </br>
         <li class="list-group-item">
             {% for badge in technicalbadges %}
-
-                <img src={% static badge.iconUrl %} height="150"%>
-
+                <a href={{ badge.pageUrl }}>
+                    <img src={% static badge.iconUrl %} height="150"%>
+                </a>
             {% endfor %}
         </li>
     {% else %}

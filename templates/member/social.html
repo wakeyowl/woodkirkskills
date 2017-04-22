@@ -41,8 +41,9 @@
         <li class="list-group-item">
             {% for badge in socialbadges %}
 
-                <img src={% static badge.iconUrl %} height="150"%>
-
+                <a href={{ badge.pageUrl }}>
+                    <img src={% static badge.iconUrl %} height="150"%>
+                </a>
             {% endfor %}
         </li>
     {% else %}

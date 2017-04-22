@@ -26,16 +26,16 @@
     </div>
 
 
-{% if physicalbadges %}
+    {% if physicalbadges %}
 
         <h4>Physical Badges ({{ badgecounts| getBadgeCount:"Physical" }}) </h4>
         <div class="list-group">
         </br>
         <li class="list-group-item">
             {% for badge in physicalbadges %}
-
-                <img src={% static badge.iconUrl %} height="150"%>
-
+                <a href={{ badge.pageUrl }}>
+                    <img src={% static badge.iconUrl %} height="150"%>
+                </a>
             {% endfor %}
         </li>
     {% else %}
