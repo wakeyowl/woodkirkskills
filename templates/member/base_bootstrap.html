@@ -43,7 +43,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbar">
         {% if user.is_authenticated %}
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar">
 
                 <li class="nav-item">
                     <a class="nav-link" href="">
@@ -54,7 +54,7 @@
                 <hr/>
 
                 <li class="products nav-item">
-                    <a class="nav-link" href="{% url 'skills_matrix' %}">
+                    <a class="nav-link" href="{% url 'skillsmatrix' %}">
                         <span class="fa fa-home" aria-hidden="true"></span> Skills Matrix
                     </a>
                 </li>
@@ -113,7 +113,6 @@
 
             </ul>
         {% else %}
-
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="products nav-item">

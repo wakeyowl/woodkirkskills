@@ -163,7 +163,7 @@ def get_badge_dictionaries_categories(request, current_user_only):
 
 
 def skills_matrix(request):
-    response = render(request, 'member/skills_matrix.html', {})
+    response = render(request, 'member/skillsmatrix.html', {})
     return response
 
 
