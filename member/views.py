@@ -73,7 +73,7 @@ def index(request):
     return response
 
 
-def merit_badges(request):
+def challengebadges(request):
     meritbadge_list = Badges.objects.filter(levels='M')
     badgeassessment_list = BadgeAssesments.objects.all()
     context_dict = {'merit': meritbadge_list, 'meritassessments': badgeassessment_list}
@@ -114,7 +114,18 @@ def get_badge_dictionaries_levels(request, current_user_only):
                 'item': badge_cat.levels,
                 'count': 0
             }
+
         badge_counts[badge_cat.levels]['count'] += 1
+
+    player_rating = 0
+    try:
+        player_rating += badge_counts['G']['count'] * 100
+        player_rating += badge_counts['S']['count'] * 50
+        player_rating += badge_counts['B']['count'] * 25
+        player_rating += badge_counts['M']['count'] * 25
+    except:
+        pass
+
 
     # Get Lists of all urls for each section
     merit_badge_urls = q3.filter(levels='M')
@@ -123,7 +134,7 @@ def get_badge_dictionaries_levels(request, current_user_only):
     gold_badge_urls = q3.filter(levels='G')
     # chuck it all in some context dictionaries for the render object
     context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
-                    'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls}
+                    'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls, 'playerrating': player_rating}
     return context_dict
 
 
