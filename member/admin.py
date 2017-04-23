@@ -1,5 +1,5 @@
 from django.contrib import admin
-from member.models import BadgeAwards, Badges
+from member.models import BadgeAwards, Badges, BadgeVideos
 
 
 class BadgeAwardAdmin(admin.ModelAdmin):
@@ -14,3 +14,4 @@ class BadgesAdmin(admin.ModelAdmin):
 
 admin.site.register(BadgeAwards, BadgeAwardAdmin)
 admin.site.register(Badges, BadgesAdmin)
+admin.site.register(BadgeVideos)
