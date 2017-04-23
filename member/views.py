@@ -10,7 +10,7 @@ from registration.backends.simple.views import RegistrationView
 from django.views.generic.edit import UpdateView
 
 from member.forms import UserMemberForm
-from member.models import UserMember, Contact, Badges, BadgeAssesments
+from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeVideos
 
 
 class WoodkirkRegistrationView(RegistrationView):
@@ -76,7 +76,8 @@ def index(request):
 def challengebadges(request):
     meritbadge_list = Badges.objects.filter(levels='M')
     badgeassessment_list = BadgeAssesments.objects.all()
-    context_dict = {'merit': meritbadge_list, 'meritassessments': badgeassessment_list}
+    badge_videos = BadgeVideos.objects.all()
+    context_dict = {'merit': meritbadge_list, 'meritassessments': badgeassessment_list, 'badgevideos': badge_videos}
     response = render(request, 'member/skillchallengebadges.html', context=context_dict)
     return response
 
@@ -169,6 +170,25 @@ def get_badge_dictionaries_categories(request, current_user_only):
     # chuck it all in some context dictionaries for the render object
     context_dict = {'badgecounts': badge_counts, 'technicalbadges': technical_badge_urls, 'physicalbadges': physical_badge_urls,
                     'socialbadges': social_badge_urls, 'psychologicalbadges': psychological_badge_urls}
+    return context_dict
+
+def get_badge_video_urls(request, current_user_only):
+    # get the current user and filter the query
+    # inner join the badges -> badgeawards
+    # filter only the current users badges
+    if current_user_only:
+        current_user = request.user.pk
+        q = Badges.objects.exclude(badgevideos__userId__badgevideos__isnull=True)
+        q3 = q.filter(badgevideos__userId__badgevideos=current_user)
+
+    else:
+        q3 = BadgeVideos.objects.all()
+
+    # Get Lists of all urls for each section
+    badge_video_urls = q3.filter()
+
+    # chuck it all in some context dictionaries for the render object
+    context_dict = {'badgevideos': badge_video_urls }
     return context_dict
 
 

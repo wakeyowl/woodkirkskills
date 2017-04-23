@@ -104,3 +104,15 @@ class BadgeAwards(models.Model):
 
     def calculateVotes(self):
         return BadgeAwards.objects.filter(choice=self).count()
+
+
+class BadgeVideos(models.Model):
+    badgeId = models.ForeignKey(Badges, on_delete=models.CASCADE)
+    pageUrl = models.CharField(max_length=200)
+    description = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name_plural = "Badge Videos"
+
+    def __str__(self):
+        return self.description
