@@ -29,13 +29,14 @@
 
 
         </div>
-
-
     </div>
+
+    <div class="jumbotron">
 
 
     <ul class="list-group" id="tips">
-        <li class="list-group-item bg-warning"><h4><span class="glyphicon glyphicon-info-sign"></span> Coaches Tips</h4></li>
+        <li class="list-group-item bg-warning"><h4><span class="glyphicon glyphicon-info-sign"></span> Coaches Tips</h4>
+        </li>
         <li class="list-group-item"><img src=""><strong>Good habits</strong></li>
         <ol>
             <li class="list-group-item">
@@ -67,10 +68,30 @@
                 <li class="list-group-item bg-warning"><h3><i>{{ badge.description }}</i></h3>
                 </li>
                 <li class="list-group-item"><strong>{{ badge.category }} </strong> Category (4 Corner Model)</li>
-                <li class="list-group-item bg-warning"><strong>Video Clips</strong></li>
             </ul>
-        {% endfor %}
 
+            {% if badgesassessments %}
+            <ol class="list-group-item bg-warning"><strong>Assessment Criteria</strong></ol>
+            {% endif %}
+            {% for assesment in badgesassessments %}
+
+                {% if assesment.badgeId_id == badge.id %}
+                    <ol>
+
+                        <li class="list-group-item">
+                            <button type="button" class="btn btn-success btn-sm">
+                                <span class="glyphicon glyphicon-ok-circle"></span>
+                            </button>
+
+                            {{ assesment.description }}</li>
+
+                    </ol>
+                {% endif %}
+            {% endfor %}
+            </br>
+            </br>
+
+        {% endfor %}
 
     {% endif %}
 
@@ -87,45 +108,7 @@
         </ol>
     {% endif %}
 {% endfor %}
-
-<ol class="list-group-item bg-warning"><strong>Assessment Criteria</strong></ol>
-{% for assesment in meritassessments %}
-    {% if assesment.badgeId_id == badge.id %}
-        <ol>
-
-            <li class="list-group-item">
-                <button type="button" class="btn btn-success btn-sm">
-                    <span class="glyphicon glyphicon-ok-circle"></span>
-                </button>
-
-                {{ assesment.description }}</li>
-
-        </ol>
-    {% endif %}
-{% endfor %}
 </ul>
-
-    <div class="row">
-
-    </div>
-    </br>
-
-    <div class="row">
-
-
-    </div>
-
-
-
-    </br>
-
-
-
-    </div>
-
-    </br>
-
-    </div>
-    </div>
+</div>
 
 {% endblock %}

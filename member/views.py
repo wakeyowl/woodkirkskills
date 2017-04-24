@@ -10,7 +10,7 @@ from registration.backends.simple.views import RegistrationView
 from django.views.generic.edit import UpdateView
 
 from member.forms import UserMemberForm
-from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeVideos
+from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeVideos, CoachInstuction
 
 
 class WoodkirkRegistrationView(RegistrationView):
@@ -123,9 +123,9 @@ def get_badge_dictionaries_by_name(request, current_user_only):
     # Get Lists of all urls for each section
     badge_by_name_urls = q3.filter(pageUrl__contains=request_url.path)
 
-    # chuck it all in some context dictionaries for the render object
-    context_dict = {'badges': badge_by_name_urls}
-    return context_dict
+    # throw back the dictionary
+
+    return badge_by_name_urls
 
 
 def get_badge_dictionaries_levels(request, current_user_only):
@@ -227,10 +227,10 @@ def attacking(request):
     return response
 
 
-def kickups(request):
-    context_dictionary = get_badge_dictionaries_by_name(request, False)
-    response = render(request, 'member/skills/kickups.html', context_dictionary)
-    return response
+# def kickups(request):
+#     context_dictionary = get_badge_dictionaries_by_name(request, False)
+#     response = render(request, 'member/skills/kickups.html', context_dictionary)
+#     return response
 
 
 def defending(request):
@@ -273,8 +273,11 @@ def psychological(request):
 
 
 def kickups(request):
-    context_dict = get_badge_dictionaries_by_name(request, False)
-    response = render(request, 'member/skills/kickups.html', context_dict)
+    badgeassessment_list = BadgeAssesments.objects.all()
+    coach_instructions_list = CoachInstuction.objects.all()
+    badge_dict_name_list = get_badge_dictionaries_by_name(request, False)
+    context_dictionary =  {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list, 'coachinstructions': coach_instructions_list}
+    response = render(request, 'member/skills/kickups.html', context=context_dictionary)
     return response
 
 
