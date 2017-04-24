@@ -116,3 +116,23 @@ class BadgeVideos(models.Model):
 
     def __str__(self):
         return self.description
+
+
+class CoachInstuction(models.Model):
+    TIP = 'T'
+    WARNING = 'W'
+    INFO = 'I'
+    INSTRUCTION_TYPE = (
+        (TIP, 'Tip'),
+        (WARNING, 'Warning'),
+        (INFO, 'Info'),
+    )
+    badgeName = models.CharField(max_length=100)
+    tipType = models.CharField(max_length=1, choices=INSTRUCTION_TYPE)
+    description = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name_plural = "Coach Instructions"
+
+    def __str__(self):
+        return self.badgeName

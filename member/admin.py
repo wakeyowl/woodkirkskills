@@ -1,9 +1,13 @@
 from django.contrib import admin
-from member.models import BadgeAwards, Badges, BadgeVideos
+from member.models import BadgeAwards, Badges, BadgeVideos, CoachInstuction
 
 
 class BadgeAwardAdmin(admin.ModelAdmin):
     list_display = ('userId_id', 'badgeId_id', 'dateAwarded')
+
+
+class CoachInstuctionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'tipType', 'description', 'badgeName')
 
 
 class BadgesAdmin(admin.ModelAdmin):
@@ -15,3 +19,4 @@ class BadgesAdmin(admin.ModelAdmin):
 admin.site.register(BadgeAwards, BadgeAwardAdmin)
 admin.site.register(Badges, BadgesAdmin)
 admin.site.register(BadgeVideos)
+admin.site.register(CoachInstuction, CoachInstuctionAdmin)
