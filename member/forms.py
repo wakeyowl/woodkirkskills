@@ -15,4 +15,4 @@ class UserMemberForm(forms.ModelForm):
 
     class Meta:
         model = UserMember
-        fields = ('full_name', 'favourite_player', 'favourite_team', 'consent')
+        fields = ('full_name', 'favourite_player', 'favourite_team', 'birthdate', 'consent', 'gender')

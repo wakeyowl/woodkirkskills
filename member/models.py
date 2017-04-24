@@ -27,7 +27,7 @@ class UserMember(models.Model):
         super(UserMember, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.user
+        return '{0}'.format(self.user)
 
 
 class Contact(models.Model):
