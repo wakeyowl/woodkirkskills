@@ -91,7 +91,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         # The following settings are not used with sqlite3:
-        'NAME': 'woodkirkskillsl$woodkirkdb',
+        'NAME': 'woodkirkskills$woodkirkdb',
         'USER': 'woodkirkskills',
         'PASSWORD': 'v0n-neumann',
         'HOST': 'woodkirkskills.mysql.pythonanywhere-services.com',
