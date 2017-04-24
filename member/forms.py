@@ -8,9 +8,8 @@ class UserMemberForm(forms.ModelForm):
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
     consent = forms.NullBooleanField(help_text=mark_safe("By consenting you are agreeing to the following: "
                                                          "<ul> "
-                                                         "<li>I agree to  </li>"
-                                                         "<li>I agree to </li>"
-                                                         "<li>I agree to </li>"
+                                                         "<li>I agree to work hard at training </li>"
+                                                         "<li>I agree to practice my skills </li>"
                                                          "</ul>"))
 
     class Meta:
