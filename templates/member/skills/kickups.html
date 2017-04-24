@@ -34,81 +34,83 @@
     <div class="jumbotron">
 
 
-    <ul class="list-group" id="tips">
-        <li class="list-group-item bg-warning"><h4><span class="glyphicon glyphicon-info-sign"></span> Coaches Tips</h4>
-        </li>
-        <li class="list-group-item"><img src=""><strong>Good habits</strong></li>
-        <ol>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-success btn-default">
-                    <span class="glyphicon glyphicon-ok-circle"></span>
-                </button>
-                Thing 1 to do !!
+        <ul class="list-group" id="tips">
+            <li class="list-group-item bg-warning"><h4><span class="glyphicon glyphicon-info-sign"></span> Coaches Tips
+            </h4>
             </li>
-        </ol>
-        <li class="list-group-item"><img src=""><strong>Things to avoid</strong></li>
-        <ol>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-danger btn-default">
-                    <span class="glyphicon glyphicon-remove-circle"></span>
-                </button>
-                Things 1 Avoid !!
-            </li>
-        </ol>
-    </ul>
-
-
-    </ul>
-
-    {% if badges %}
-        <ul class="list-group">
-        {% for badge in badges %}
-            <ul class="list-group">
-                <li class="list-group-item"><img src={% static badge.iconUrl %} height="150"%></li>
-                <li class="list-group-item bg-warning"><h3><i>{{ badge.description }}</i></h3>
-                </li>
-                <li class="list-group-item"><strong>{{ badge.category }} </strong> Category (4 Corner Model)</li>
-            </ul>
-
-            {% if badgesassessments %}
-            <ol class="list-group-item bg-warning"><strong>Assessment Criteria</strong></ol>
-            {% endif %}
-            {% for assesment in badgesassessments %}
-
-                {% if assesment.badgeId_id == badge.id %}
-                    <ol>
+            {% if coachinstructions %}
+                <ol>
+                    {% for instruction in coachinstructions %}
 
                         <li class="list-group-item">
-                            <button type="button" class="btn btn-success btn-sm">
-                                <span class="glyphicon glyphicon-ok-circle"></span>
-                            </button>
 
-                            {{ assesment.description }}</li>
+                        {% if instruction.tipType == 'T' %}
+                            <button type="button" class="btn btn-success btn-default">
+                            <span class="fa fa-check"></span>
+                        {% else %}
+                            <button type="button" class="btn btn-danger btn-default">
+                            <span class="fa fa-times"></span>
+                        {% endif %}
+                        </button>
+                        {{ instruction.description }}
+                    {% endfor %}
+                </ol>
+            {% endif %}
 
-                    </ol>
+        </ul>
+
+
+        </ul>
+
+        {% if badges %}
+            <ul class="list-group">
+            {% for badge in badges %}
+                <ul class="list-group">
+                    <li class="list-group-item"><img src={% static badge.iconUrl %} height="150"%></li>
+                    <li class="list-group-item bg-warning"><h3><i>{{ badge.description }}</i></h3>
+                    </li>
+                    <li class="list-group-item"><strong>{{ badge.category }} </strong> Category (4 Corner Model)</li>
+                </ul>
+
+                {% if badgesassessments %}
+                    <ol class="list-group-item bg-warning"><strong>Assessment Criteria</strong></ol>
                 {% endif %}
+                {% for assesment in badgesassessments %}
+
+                    {% if assesment.badgeId_id == badge.id %}
+                        <ol>
+
+                            <li class="list-group-item">
+                                <button type="button" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-ok-circle"></span>
+                                </button>
+
+                                {{ assesment.description }}</li>
+
+                        </ol>
+                    {% endif %}
+                {% endfor %}
+                </br>
+                </br>
+
             {% endfor %}
-            </br>
-            </br>
 
+        {% endif %}
+
+        {% for video in badgevideos %}
+            {% if video.badgeId_id == badge.id %}
+                <ol>
+                    <li class="list-group-item">
+                        <button type="button" class="btn btn-primary btn-sm">
+                            <span class="fa fa-youtube"></span>
+                        </button>
+                        <a target="_blank" href={{ video.pageUrl }}> {{ video.description }}</li>
+                    </a>
+
+                </ol>
+            {% endif %}
         {% endfor %}
-
-    {% endif %}
-
-{% for video in badgevideos %}
-    {% if video.badgeId_id == badge.id %}
-        <ol>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-primary btn-sm">
-                    <span class="fa fa-youtube"></span>
-                </button>
-                <a target="_blank" href={{ video.pageUrl }}> {{ video.description }}</li>
-            </a>
-
-        </ol>
-    {% endif %}
-{% endfor %}
-</ul>
-</div>
+        </ul>
+    </div>
 
 {% endblock %}
