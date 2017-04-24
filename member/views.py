@@ -94,6 +94,40 @@ def allbadges(request):
     return response
 
 
+def get_badge_dictionaries_by_name(request, current_user_only):
+    # get the current user and filter the query
+    # inner join the badges -> badgeawards
+    # filter only the current users badges
+
+    if current_user_only:
+        current_user = request.user.pk
+        q = Badges.objects.exclude(badgeawards__userId__badgeawards__isnull=True)
+        q3 = q.filter(badgeawards__userId=current_user)
+
+    else:
+        q3 = Badges.objects.all()
+
+    # q3 = q.filter(badgeawards__userId=current_user)
+    # Create a dict of category levels and counts used in custom_tags
+    badge_counts = {}
+    for badge_cat in q3:
+        if not badge_counts.has_key(badge_cat.levels):
+            badge_counts[badge_cat.levels] = {
+                'item': badge_cat.levels,
+                'count': 0
+            }
+
+        badge_counts[badge_cat.levels]['count'] += 1
+
+    request_url = request
+    # Get Lists of all urls for each section
+    badge_by_name_urls = q3.filter(pageUrl__contains=request_url.path)
+
+    # chuck it all in some context dictionaries for the render object
+    context_dict = {'badges': badge_by_name_urls}
+    return context_dict
+
+
 def get_badge_dictionaries_levels(request, current_user_only):
     # get the current user and filter the query
     # inner join the badges -> badgeawards
@@ -121,8 +155,17 @@ def get_badge_dictionaries_levels(request, current_user_only):
     player_rating = 0
     try:
         player_rating += badge_counts['G']['count'] * 100
+    except:
+        pass
+    try:
         player_rating += badge_counts['S']['count'] * 50
+    except:
+        pass
+    try:
         player_rating += badge_counts['B']['count'] * 25
+    except:
+        pass
+    try:
         player_rating += badge_counts['M']['count'] * 25
     except:
         pass
@@ -172,25 +215,6 @@ def get_badge_dictionaries_categories(request, current_user_only):
                     'socialbadges': social_badge_urls, 'psychologicalbadges': psychological_badge_urls}
     return context_dict
 
-def get_badge_video_urls(request, current_user_only):
-    # get the current user and filter the query
-    # inner join the badges -> badgeawards
-    # filter only the current users badges
-    if current_user_only:
-        current_user = request.user.pk
-        q = Badges.objects.exclude(badgevideos__userId__badgevideos__isnull=True)
-        q3 = q.filter(badgevideos__userId__badgevideos=current_user)
-
-    else:
-        q3 = BadgeVideos.objects.all()
-
-    # Get Lists of all urls for each section
-    badge_video_urls = q3.filter()
-
-    # chuck it all in some context dictionaries for the render object
-    context_dict = {'badgevideos': badge_video_urls }
-    return context_dict
-
 
 
 def skills_matrix(request):
@@ -204,7 +228,8 @@ def attacking(request):
 
 
 def kickups(request):
-    response = render(request, 'member/skills/kickups.html', {})
+    context_dictionary = get_badge_dictionaries_by_name(request, False)
+    response = render(request, 'member/skills/kickups.html', context_dictionary)
     return response
 
 
@@ -244,6 +269,12 @@ def physical(request):
 def psychological(request):
     context_dict = get_badge_dictionaries_categories(request, False)
     response = render(request, 'member/psychological.html', context_dict)
+    return response
+
+
+def kickups(request):
+    context_dict = get_badge_dictionaries_by_name(request, False)
+    response = render(request, 'member/skills/kickups.html', context_dict)
     return response
 
 
