@@ -11,6 +11,7 @@ class UserMemberForm(forms.ModelForm):
                                                          "<li>I agree to work hard at training </li>"
                                                          "<li>I agree to practice my skills </li>"
                                                          "</ul>"))
+    birthdate = forms.DateField(input_formats=['%d/%m/%Y'])
 
     class Meta:
         model = UserMember

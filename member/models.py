@@ -2,11 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
 
-from woodkirkvalleydata import settings
-
 
 class UserMember(models.Model):
-    DATE_INPUT_FORMATS = ('%d-%m-%Y', '%Y-%m-%d')
     MALE = 'M'
     FEMALE = 'F'
     SEX_CHOICES = (
@@ -18,7 +15,7 @@ class UserMember(models.Model):
     full_name = models.CharField(max_length=128, unique=True, null=True)
     favourite_player = models.CharField(max_length=128, null=True)
     favourite_team = models.CharField(max_length=128, null=True)
-    birthdate = models.DateField(input_formats=settings.DATE_INPUT_FORMATS)
+    birthdate = models.DateField()
     slug = models.SlugField(unique=True)
     CONSENT_CHOICES = ((True, 'Yes'), (False, 'No'))
     consent = models.NullBooleanField(choices=CONSENT_CHOICES,
