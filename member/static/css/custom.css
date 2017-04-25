@@ -1,5 +1,5 @@
 @media (max-width: 480px) {
-        .navbar-toggler{
+        .navbar-toggler-right{
            position: static;
            width:100%;
         }
