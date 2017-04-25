@@ -1,6 +1,7 @@
 @media (max-width: 480px) {
-        .navbar-toggler-right{
-           position: static;
-           width:100%;
-        }
+    .navbar-toggler-right {
+        position: static;
+        align-content: center;
+        width: 100%;
+    }
 }
