@@ -1,0 +1,6 @@
+@media (max-width: 480px) {
+        .navbar-toggler-right{
+           position: static;
+           width:100%;
+        }
+}
