@@ -75,9 +75,19 @@ def index(request):
 
 def challengebadges(request):
     meritbadge_list = Badges.objects.filter(levels='M')
+    badge_counts = {}
+    for badge_cat in meritbadge_list:
+        if not badge_counts.has_key(badge_cat.levels):
+            badge_counts[badge_cat.levels] = {
+                'item': badge_cat.levels,
+                'count': 0
+            }
+
+        badge_counts[badge_cat.levels]['count'] += 1
+
     badgeassessment_list = BadgeAssesments.objects.all()
     badge_videos = BadgeVideos.objects.all()
-    context_dict = {'merit': meritbadge_list, 'meritassessments': badgeassessment_list, 'badgevideos': badge_videos}
+    context_dict = {'badgecounts': badge_counts, 'merit': meritbadge_list, 'meritassessments': badgeassessment_list, 'badgevideos': badge_videos}
     response = render(request, 'member/skillchallengebadges.html', context=context_dict)
     return response
 
