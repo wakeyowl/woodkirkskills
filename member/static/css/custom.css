@@ -1,5 +1,7 @@
-@media (max-width: 480px) {
-    .navbar-toggler-right {
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px) {
+    .navbar-toggle collapsed {
         position: static;
         align-content: center;
         width: 100%;
