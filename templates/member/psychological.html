@@ -28,14 +28,14 @@
 
     {% if psychologicalbadges %}
 
-        <h4>Psychological Badges ({{ badgecounts| getBadgeCount:"Psychological" }}) </h4>
-        <div class="list-group">
+        <h4>Psychological Badges <span class="badge">{{ badgecounts| getBadgeCount:"Psychological" }}</span></h4>
+
         </br>
         <li class="list-group-item">
             {% for badge in psychologicalbadges %}
 
                 <a href={{ badge.pageUrl }}>
-                           <img src={% static badge.iconUrl %} height="150"%>
+                    <img src={% static badge.iconUrl %} height="150"%>
                 </a>
             {% endfor %}
         </li>

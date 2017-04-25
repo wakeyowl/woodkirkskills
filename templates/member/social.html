@@ -35,8 +35,7 @@
 
     {% if socialbadges %}
 
-        <h4>Social Badges ({{ badgecounts| getBadgeCount:"Social" }}) </h4>
-        <div class="list-group">
+        <h4>Social Badges <span class="badge">{{ badgecounts| getBadgeCount:"Social" }}</span> </h4>
         </br>
         <li class="list-group-item">
             {% for badge in socialbadges %}
