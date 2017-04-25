@@ -4,12 +4,3 @@
            width:100%;
         }
 }
-
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
-    .navbar-toggler{
-           position: static;
-           width:100%;
-        }
-}
