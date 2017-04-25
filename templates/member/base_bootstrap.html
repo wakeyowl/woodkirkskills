@@ -51,7 +51,7 @@
                     </a>
                 </li>
 
-                <hr/>
+                <li role="separator" class="divider"></li>
 
                 <li class="products nav-item">
                     <a class="nav-link" href="{% url 'skillsmatrix' %}">
@@ -131,110 +131,6 @@
     </div>
 </nav>
 
-
-{#<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">#}
-{##}
-{#    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse"#}
-{#            data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">#}
-{#        <span class="navbar-toggler-icon"></span>#}
-{#    </button>#}
-{##}
-{#    <a class="navbar-brand" href="{% url 'index' %}">#}
-{#        <span class="fa fa-futbol-o" aria-hidden="true"></span> Woodkirk Valley FC#}
-{#    </a>#}
-{##}
-{#    <div class="collapse navbar-collapse" id="navbar">#}
-{#        <ul class="navbar-nav mr-auto">#}
-{#            <li class="nav-item active">#}
-{#            </li>#}
-{##}
-{#            <ul class="nav navbar-nav">#}
-{#                {% if user.is_authenticated %}#}
-{##}
-{##}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link" href="">#}
-{#                            <span class="fa fa-user-circle" aria-hidden="true"></span> {{ user.username }}#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{#                    <li class="products nav-item">#}
-{#                        <a class="nav-link" href="{% url 'skills_matrix' %}">#}
-{#                            <span class="fa fa-home" aria-hidden="true"></span> Skills Matrix#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{#                    <li class="products nav-item">#}
-{#                        <a class="nav-link" href="{% url 'mybadges' %}">#}
-{#                            <span class="fa fa-id-badge" aria-hidden="true"></span> My Badges#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{##}
-{#                    <li class="products nav-item">#}
-{#                        <a class="nav-link" href="{% url 'merit_badges' %}">#}
-{#                            <span class="fa fa-shield" aria-hidden="true"></span> Challenge Badges#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{##}
-{#                    <li class="products nav-item">#}
-{#                        <a class="nav-link" href="{% url 'technical' %}">#}
-{#                            <span class="fa fa-user-plus" aria-hidden="true"></span> Technical#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{#                    <li class="products nav-item">#}
-{#                        <a class="nav-link" href="{% url 'social' %}">#}
-{#                            <span class="fa fa-commenting" aria-hidden="true"></span> Social#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{#                    <li class="products nav-item">#}
-{#                        <a class="nav-link" href="{% url 'psychological' %}">#}
-{#                            <span class="fa fa-eye" aria-hidden="true"></span> Psychological#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{#                    <li class="products nav-item">#}
-{#                        <a class="nav-link" href="{% url 'physical' %}">#}
-{#                            <span class="fa fa-heartbeat" aria-hidden="true"></span> Physical#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{#                    <li class="products nav-item">#}
-{#                        <a class="nav-link" href="{% url 'allbadges' %}">#}
-{#                            <span class="fa fa-binoculars" aria-hidden="true"></span> All Badges#}
-{#                        </a>#}
-{#                    </li>#}
-{##}
-{#                    <ul class="nav navbar-nav navbar-right">#}
-{#                        <li>#}
-{#                            <a class="nav-link" href="{% url 'auth_logout' %}?next=/member/">#}
-{#                                <span class="fa fa-sign-out" aria-hidden="true"></span> Logout#}
-{#                            </a>#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                    </ul>#}
-{##}
-{#                {% else %}#}
-{#                    <ul class="nav navbar-nav navbar-right">#}
-{#                        <li class="products nav-item">#}
-{#                            <a class="nav-link" href="{% url 'registration_register' %}">#}
-{#                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register Here#}
-{#                            </a>#}
-{#                        </li>#}
-{##}
-{#                        <li class="products nav-item">#}
-{#                            <a class="nav-link" href="{% url 'auth_login' %}">#}
-{#                                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login#}
-{#                            </a>#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                {% endif %}#}
-{#        </ul>#}
-{#    </div>#}
-{#</nav>#}
 
 <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
     {% block body_block %}
