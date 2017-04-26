@@ -628,7 +628,7 @@
       "name": "Leadership",
       "category": "Social",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/social/leadership/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/leadership-merit.png",
       "description": "Be a leader!"
     }
@@ -640,7 +640,7 @@
       "name": "Teamwork",
       "category": "Social",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/social/teamwork/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/teamwork-merit.png",
       "description": "Show great teamwork!"
     }
