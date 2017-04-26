@@ -33,14 +33,16 @@
 
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">
-            <span class="fa fa-futbol-o" aria-hidden="true"></span> Woodkirk Valley Skills
+        <a class="navbar-static-top" href="{% url 'index' %}">
+            <img src="{% static "images/woodkirk-trans.png" %}" alt="WVFC" width="50px"/>
         </a>
     </div>
     <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
             data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
+        <p class="navbar-text" aria-hidden="true">Menu</p>
     </button>
+
     <div class="collapse navbar-collapse" id="navbar">
         {% if user.is_authenticated %}
             <ul class="nav navbar-nav navbar">
