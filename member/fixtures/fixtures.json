@@ -230,7 +230,7 @@
       "name": "First Touch",
       "category": "Technical",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/technical/firsttouch/",
+      "pageUrl": "/member/skillsmatrix/technical/firsttouch/",
       "iconUrl": "/images/badges/firsttouch-bronze.png",
       "description": "First Touch Bronze"
 
@@ -243,7 +243,7 @@
       "name": "First Touch",
       "category": "Technical",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/technical/firsttouch/",
+      "pageUrl": "/member/skillsmatrix/technical/firsttouch/",
       "iconUrl": "/images/badges/firsttouch-silver.png",
       "description": "First Touch Silver"
     }
@@ -255,7 +255,7 @@
       "name": "First Touch",
       "category": "Technical",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/technical/firsttouch/",
+      "pageUrl": "/member/skillsmatrix/technical/firsttouch/",
       "iconUrl": "/images/badges/firsttouch-gold.png",
       "description": "First Touch Gold"
     }
@@ -267,7 +267,7 @@
       "name": "Goalkeeper",
       "category": "Technical",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/technical/goalkeeper/",
+      "pageUrl": "/member/skillsmatrix/technical/goalkeeper/",
       "iconUrl": "/images/badges/goalkeeping-bronze.png",
       "description": "Goalkeeping Bronze"
     }
@@ -279,7 +279,7 @@
       "name": "Goalkeeper",
       "category": "Technical",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/technical/goalkeeper/",
+      "pageUrl": "/member/skillsmatrix/technical/goalkeeper/",
       "iconUrl": "/images/badges/goalkeeping-silver.png",
       "description": "Goalkeeping Silver"
     }
@@ -291,7 +291,7 @@
       "name": "Goalkeeper",
       "category": "Technical",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/technical/goalkeeper/",
+      "pageUrl": "/member/skillsmatrix/technical/goalkeeper/",
       "iconUrl": "/images/badges/goalkeeping-gold.png",
       "description": "Goalkeeping Gold"
     }
@@ -303,7 +303,7 @@
       "name": "Passing",
       "category": "Technical",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/technical/passing/",
+      "pageUrl": "/member/skillsmatrix/technical/passing/",
       "iconUrl": "/images/badges/passing-bronze.png",
       "description": "Passing Bronze"
     }
@@ -315,7 +315,7 @@
       "name": "Passing",
       "category": "Technical",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/technical/passing/",
+      "pageUrl": "/member/skillsmatrix/technical/passing/",
       "iconUrl": "/images/badges/passing-silver.png",
       "description": "Passing Silver"
 
@@ -328,7 +328,7 @@
       "name": "Passing",
       "category": "Technical",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/technical/passing/",
+      "pageUrl": "/member/skillsmatrix/technical/passing/",
       "iconUrl": "/images/badges/passing-gold.png",
       "description": "Passing Gold"
     }
@@ -340,7 +340,7 @@
       "name": "Goalscorer",
       "category": "Technical",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/technical/goalscorer/",
+      "pageUrl": "/member/skillsmatrix/technical/goalscorer/",
       "iconUrl": "/images/badges/goalscorer-merit.png",
       "description": "Master the Art of goalscoring!"
     }
@@ -352,7 +352,7 @@
       "name": "Kickups",
       "category": "Psychological",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/psychological/kickups/",
+      "pageUrl": "/member/skillsmatrix/psychological/kickups/",
       "iconUrl": "/images/badges/kickups-bronze.png",
       "description": "Kickups Bronze"
     }
@@ -364,7 +364,7 @@
       "name": "Kickups",
       "category": "Psychological",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/psychological/kickups/",
+      "pageUrl": "/member/skillsmatrix/psychological/kickups/",
       "iconUrl": "/images/badges/kickups-silver.png",
       "description": "Kickups Silver"
     }
@@ -376,7 +376,7 @@
       "name": "Kickups",
       "category": "Psychological",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/psychological/kickups/",
+      "pageUrl": "/member/skillsmatrix/psychological/kickups/",
       "iconUrl": "/images/badges/kickups-gold.png",
       "description": "Kickups Gold"
     }
@@ -388,7 +388,7 @@
       "name": "Toe Taps",
       "category": "Psychological",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/psychological/toetaps/",
+      "pageUrl": "/member/skillsmatrix/psychological/toetaps/",
       "iconUrl": "/images/badges/toetaps-bronze.png",
       "description": "Toe Taps Bronze"
     }
@@ -400,7 +400,7 @@
       "name": "Toe Taps",
       "category": "Psychological",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/psychological/toetaps/",
+      "pageUrl": "/member/skillsmatrix/psychological/toetaps/",
       "iconUrl": "/images/badges/toetaps-silver.png",
       "description": "Toe Taps Silver"
     }
@@ -412,7 +412,7 @@
       "name": "Toe Taps",
       "category": "Psychological",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/psychological/toetaps/",
+      "pageUrl": "/member/skillsmatrix/psychological/toetaps/",
       "iconUrl": "/images/badges/toetaps-gold.png",
       "description": "Toe Taps Gold"
     }
@@ -424,7 +424,7 @@
       "name": "Cryuff Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/psychological/cryuffturns/",
+      "pageUrl": "/member/skillsmatrix/psychological/cryuffturns/",
       "iconUrl": "/images/badges/cryuffturns-merit.png",
       "description": "Master the Cryuff Turn!"
     }
@@ -436,7 +436,7 @@
       "name": "Dragback Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/psychological/dragbackturns/",
+      "pageUrl": "/member/skillsmatrix/psychological/dragbackturns/",
       "iconUrl": "/images/badges/dragbackturns-merit.png",
       "description": "Master the Dragback Turn!"
     }
@@ -448,7 +448,7 @@
       "name": "Hook Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/psychological/hookturns/",
+      "pageUrl": "/member/skillsmatrix/psychological/hookturns/",
       "iconUrl": "/images/badges/hookturns-merit.png",
       "description": "Master the Hook Turn!"
     }
@@ -460,7 +460,7 @@
       "name": "Ronaldo-chop Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/psychological/ronaldochopturns/",
+      "pageUrl": "/member/skillsmatrix/psychological/ronaldochopturns/",
       "iconUrl": "/images/badges/ronaldochop-merit.png",
       "description": "Master the Ronaldo Chop Turn!"
     }
@@ -472,7 +472,7 @@
       "name": "Stepover Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/psychological/stepoverturns/",
+      "pageUrl": "/member/skillsmatrix/psychological/stepoverturns/",
       "iconUrl": "/images/badges/stepoverturns-merit.png",
       "description": "Master the Stepover Turn!"
     }
@@ -484,7 +484,7 @@
       "name": "Zidane Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/psychological/zidaneturns/",
+      "pageUrl": "/member/skillsmatrix/psychological/zidaneturns/",
       "iconUrl": "/images/badges/zidaneturns-merit.png",
       "description": "Master the Zidane Turn!"
     }
@@ -496,7 +496,7 @@
       "name": "Dribbling",
       "category": "Physical",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/physical/dribbling/",
+      "pageUrl": "/member/skillsmatrix/physical/dribbling/",
       "iconUrl": "/images/badges/dribbling-silver.png",
       "description": "Dribbling Silver"
     }
@@ -508,7 +508,7 @@
       "name": "Dribbling",
       "category": "Physical",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/physical/dribbling/",
+      "pageUrl": "/member/skillsmatrix/physical/dribbling/",
       "iconUrl": "/images/badges/dribbling-gold.png",
       "description": "Dribbling Gold"
     }
@@ -520,7 +520,7 @@
       "name": "Heading",
       "category": "Physical",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/physical/heading/",
+      "pageUrl": "/member/skillsmatrix/physical/heading/",
       "iconUrl": "/images/badges/heading-bronze.png",
       "description": "Heading Bronze"
     }
@@ -532,7 +532,7 @@
       "name": "Heading",
       "category": "Physical",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/physical/heading/",
+      "pageUrl": "/member/skillsmatrix/physical/heading/",
       "iconUrl": "/images/badges/heading-silver.png",
       "description": "Heading Silver"
     }
@@ -544,7 +544,7 @@
       "name": "Heading",
       "category": "Physical",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/physical/heading/",
+      "pageUrl": "/member/skillsmatrix/physical/heading/",
       "iconUrl": "/images/badges/heading-gold.png",
       "description": "Heading Gold"
     }
@@ -556,7 +556,7 @@
       "name": "Attacking",
       "category": "Social",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/social/attacking/",
+      "pageUrl": "/member/skillsmatrix/social/attacking/",
       "iconUrl": "/images/badges/attacking-bronze.png",
       "description": "Attacking Bronze"
     }
@@ -568,7 +568,7 @@
       "name": "Attacking",
       "category": "Social",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/social/attacking/",
+      "pageUrl": "/member/skillsmatrix/social/attacking/",
       "iconUrl": "/images/badges/attacking-silver.png",
       "description": "Attacking Silver"
     }
@@ -580,7 +580,7 @@
       "name": "Attacking",
       "category": "Social",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/social/attacking/",
+      "pageUrl": "/member/skillsmatrix/social/attacking/",
       "iconUrl": "/images/badges/attacking-gold.png",
       "description": "Attacking Gold"
     }
@@ -592,7 +592,7 @@
       "name": "Defending",
       "category": "Social",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/social/defending/",
+      "pageUrl": "/member/skillsmatrix/social/defending/",
       "iconUrl": "/images/badges/defending-bronze.png",
       "description": "Defending Bronze"
     }
@@ -604,7 +604,7 @@
       "name": "Defending",
       "category": "Social",
       "levels": "S",
-      "pageUrl": "/member/skills_matrix/social/defending/",
+      "pageUrl": "/member/skillsmatrix/social/defending/",
       "iconUrl": "/images/badges/defending-silver.png",
       "description": "Defending Silver"
     }
@@ -616,7 +616,7 @@
       "name": "Defending",
       "category": "Social",
       "levels": "G",
-      "pageUrl": "/member/skills_matrix/social/defending/",
+      "pageUrl": "/member/skillsmatrix/social/defending/",
       "iconUrl": "/images/badges/defending-gold.png",
       "description": "Defending Gold"
     }
@@ -628,7 +628,7 @@
       "name": "Leadership",
       "category": "Social",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/social/leadership/",
+      "pageUrl": "/member/skillsmatrix/social/leadership/",
       "iconUrl": "/images/badges/leadership-merit.png",
       "description": "Be a leader!"
     }
@@ -640,7 +640,7 @@
       "name": "Teamwork",
       "category": "Social",
       "levels": "M",
-      "pageUrl": "/member/skills_matrix/social/teamwork/",
+      "pageUrl": "/member/skillsmatrix/social/teamwork/",
       "iconUrl": "/images/badges/teamwork-merit.png",
       "description": "Show great teamwork!"
     }
@@ -652,7 +652,7 @@
       "name": "Dribbling",
       "category": "Physical",
       "levels": "B",
-      "pageUrl": "/member/skills_matrix/physical/dribbling/",
+      "pageUrl": "/member/skillsmatrix/physical/dribbling/",
       "iconUrl": "/images/badges/dribbling-bronze.png",
       "description": "Dribbling Bronze"
     }
