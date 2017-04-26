@@ -424,7 +424,7 @@
       "name": "Cryuff Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/psychological/cryuffturns/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/cryuffturns-merit.png",
       "description": "Master the Cryuff Turn!"
     }
@@ -436,7 +436,7 @@
       "name": "Dragback Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/psychological/dragbackturns/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/dragbackturns-merit.png",
       "description": "Master the Dragback Turn!"
     }
@@ -448,7 +448,7 @@
       "name": "Hook Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/psychological/hookturns/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/hookturns-merit.png",
       "description": "Master the Hook Turn!"
     }
@@ -460,7 +460,7 @@
       "name": "Ronaldo-chop Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/psychological/ronaldochopturns/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/ronaldochop-merit.png",
       "description": "Master the Ronaldo Chop Turn!"
     }
@@ -472,7 +472,7 @@
       "name": "Stepover Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/psychological/stepoverturns/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/stepoverturns-merit.png",
       "description": "Master the Stepover Turn!"
     }
@@ -484,7 +484,7 @@
       "name": "Zidane Turns",
       "category": "Psychological",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/psychological/zidaneturns/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/zidaneturns-merit.png",
       "description": "Master the Zidane Turn!"
     }
