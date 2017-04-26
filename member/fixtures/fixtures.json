@@ -231,7 +231,9 @@
       "category": "Technical",
       "levels": "B",
       "pageUrl": "/member/skills_matrix/technical/firsttouch/",
-      "iconUrl": "/images/badges/firsttouch-bronze.png"
+      "iconUrl": "/images/badges/firsttouch-bronze.png",
+      "description": "First Touch Bronze"
+
     }
   },
   {
@@ -242,7 +244,8 @@
       "category": "Technical",
       "levels": "S",
       "pageUrl": "/member/skills_matrix/technical/firsttouch/",
-      "iconUrl": "/images/badges/firsttouch-silver.png"
+      "iconUrl": "/images/badges/firsttouch-silver.png",
+      "description": "First Touch Silver"
     }
   },
   {
@@ -253,7 +256,8 @@
       "category": "Technical",
       "levels": "G",
       "pageUrl": "/member/skills_matrix/technical/firsttouch/",
-      "iconUrl": "/images/badges/firsttouch-gold.png"
+      "iconUrl": "/images/badges/firsttouch-gold.png",
+      "description": "First Touch Gold"
     }
   },
   {
