@@ -4,9 +4,7 @@ import member
 from member import views
 
 urlpatterns = [
-    # url(r'^$', member.views.ListContactView.as_view(),
-    # name='contacts-list', ),
-    url(r'^$', views.skills_matrix, name='index'),
+    url(r'^$', views.skills_matrix, name='skillsmatrix'),
     url(r'^mybadges/$', views.mybadges, name='mybadges'),
     url(r'^allbadges/$', views.allbadges, name='allbadges'),
     url(r'^skillsmatrix/$', views.skills_matrix, name='skillsmatrix'),
@@ -22,7 +20,5 @@ urlpatterns = [
     url(r'^skills_matrix/physical/$', views.physical, name='physical'),
     url(r'^add_member/$', views.add_member, name='add_member'),
     url(r'^register_profile/$', views.register_profile, name='register_profile'),
-    # url(r'^profile/(?P<username>[\w\-.@]+)/$', views.profile, name='profile'),
-    # url(r'^profile/(?P<username>[\w\-.@]+)/add_player/$', views.add_player, name='add_player'),
-    # url(r'^profile/(?P<username>[\w\-.@]+)/update_member/$', UserMemberUpdate.as_view(), name='usermember_update'),
+
 ]

@@ -69,7 +69,7 @@ def register_profile(request):
 
 
 def index(request):
-    response = render(request, 'member/index.html', {})
+    response = render(request, 'member/skillsmatrix.html', {})
     return response
 
 
