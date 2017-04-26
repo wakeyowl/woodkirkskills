@@ -33,15 +33,16 @@
 
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
     <div class="container-fluid">
-        <a class="navbar-static-top" href="{% url 'index' %}">
+        <a class="navbar-static-top navbar-left" href="{% url 'index' %}">
             <img src="{% static "images/woodkirk-trans.png" %}" alt="WVFC" width="50px"/>
         </a>
+        <button class="navbar-static-top navbar-toggle navbar-right collapsed" type="button" data-toggle="collapse"
+                data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <p class="navbar-text" aria-hidden="true">Menu</p>
+        </button>
     </div>
-    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
-            data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <p class="navbar-text" aria-hidden="true">Menu</p>
-    </button>
+
 
     <div class="collapse navbar-collapse wrapper" id="navbar">
         {% if user.is_authenticated %}
