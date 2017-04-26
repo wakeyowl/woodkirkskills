@@ -290,11 +290,13 @@ def kickups(request):
     response = render(request, 'member/skills/kickups.html', context=context_dictionary)
     return response
 
-def get_skill_page_by_URI(request):
+
+def get_skill_page_by_uri(request):
     new_path = request.get_full_path()
     last_resource = basename(normpath(new_path))
     badgeassessment_list = BadgeAssesments.objects.all()
     coach_instructions_list = CoachInstuction.objects.all()
+    coach_instructions_list = coach_instructions_list.filter(badgeName=last_resource.__str__())
     badge_dict_name_list = get_badge_dictionaries_by_name(request, False)
     context_dictionary =  {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list, 'coachinstructions': coach_instructions_list}
     response = render(request, 'member/skills/skillpages.html', context=context_dictionary)

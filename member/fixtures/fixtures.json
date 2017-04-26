@@ -264,7 +264,8 @@
       "category": "Technical",
       "levels": "B",
       "pageUrl": "/member/skills_matrix/technical/goalkeeper/",
-      "iconUrl": "/images/badges/goalkeeping-bronze.png"
+      "iconUrl": "/images/badges/goalkeeping-bronze.png",
+      "description": "Goalkeeping Bronze"
     }
   },
   {
@@ -275,7 +276,8 @@
       "category": "Technical",
       "levels": "S",
       "pageUrl": "/member/skills_matrix/technical/goalkeeper/",
-      "iconUrl": "/images/badges/goalkeeping-silver.png"
+      "iconUrl": "/images/badges/goalkeeping-silver.png",
+      "description": "Goalkeeping Silver"
     }
   },
   {
@@ -286,7 +288,8 @@
       "category": "Technical",
       "levels": "G",
       "pageUrl": "/member/skills_matrix/technical/goalkeeper/",
-      "iconUrl": "/images/badges/goalkeeping-gold.png"
+      "iconUrl": "/images/badges/goalkeeping-gold.png",
+      "description": "Goalkeeping Gold"
     }
   },
   {
@@ -297,7 +300,8 @@
       "category": "Technical",
       "levels": "B",
       "pageUrl": "/member/skills_matrix/technical/passing/",
-      "iconUrl": "/images/badges/passing-bronze.png"
+      "iconUrl": "/images/badges/passing-bronze.png",
+      "description": "Passing Bronze"
     }
   },
   {
@@ -308,7 +312,9 @@
       "category": "Technical",
       "levels": "S",
       "pageUrl": "/member/skills_matrix/technical/passing/",
-      "iconUrl": "/images/badges/passing-silver.png"
+      "iconUrl": "/images/badges/passing-silver.png",
+      "description": "Passing Silver"
+
     }
   },
   {
@@ -319,7 +325,8 @@
       "category": "Technical",
       "levels": "G",
       "pageUrl": "/member/skills_matrix/technical/passing/",
-      "iconUrl": "/images/badges/passing-gold.png"
+      "iconUrl": "/images/badges/passing-gold.png",
+      "description": "Passing Gold"
     }
   },
   {

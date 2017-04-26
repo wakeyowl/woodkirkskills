@@ -6,8 +6,9 @@ from member import views
 urlpatterns = [
     url(r'^$', views.skills_matrix, name='skillsmatrix'),
     url(r'^mybadges/$', views.mybadges, name='mybadges'),
-    url(r'^skills_matrix/technical/firsttouch/$', views.get_skill_page_by_URI, name='skillpages'),
-    url(r'^skills_matrix/psychological/kickups/$', views.get_skill_page_by_URI, name='skillpages'),
+    url(r'^skills_matrix/technical/firsttouch/$', views.get_skill_page_by_uri, name='skillpages'),
+    url(r'^skills_matrix/psychological/kickups/$', views.get_skill_page_by_uri, name='skillpages'),
+    url(r'^skills_matrix/psychological/toetaps/$', views.get_skill_page_by_uri, name='skillpages'),
     url(r'^allbadges/$', views.allbadges, name='allbadges'),
     url(r'^skillsmatrix/$', views.skills_matrix, name='skillsmatrix'),
     url(r'^skills_matrix/challengebadges/$', views.challengebadges, name='challengebadges'),
