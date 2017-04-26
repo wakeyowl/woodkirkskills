@@ -1,0 +1,116 @@
+{% extends 'member/base_bootstrap.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    Individual Skills
+{% endblock %}
+{% block body_block %}
+
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h2 class="jumbotron-heading">Kick-Ups</h2>
+
+            <div class="col-md-6">
+                <ul style="text-align: left">
+                    <li>Singles kick and catch</li>
+                    <li>Use both feet</li>
+                    <li>Increase to two kicks then catch so you can do it consistently</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <ul style="text-align: left">
+                    <li>Keep increasing as your confidence grows</li>
+                    <li>Try bounce kickups - 1 bounce / 1 kick / 1 bounce ...</li>
+                    <li>Use different body parts</li>
+                </ul>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="jumbotron">
+
+
+        <ul class="list-group" id="tips">
+            <li class="list-group-item bg-warning"><h4><span class="glyphicon glyphicon-info-sign"></span> Coaches Tips
+            </h4>
+            </li>
+            {% if coachinstructions %}
+                <ol>
+                    {% for instruction in coachinstructions %}
+
+                        <li class="list-group-item">
+
+                        {% if instruction.tipType == 'T' %}
+                            <button type="button" class="btn btn-success btn-default">
+                            <span class="fa fa-check"></span>
+                        {% else %}
+                            <button type="button" class="btn btn-danger btn-default">
+                            <span class="fa fa-times"></span>
+                        {% endif %}
+                        </button>
+                        {{ instruction.description }}
+                    {% endfor %}
+                </ol>
+            {% endif %}
+
+        </ul>
+
+
+        </ul>
+
+        {% if badges %}
+            <ul class="list-group">
+            {% for badge in badges %}
+                <ul class="list-group">
+                    <li class="list-group-item"><img src={% static badge.iconUrl %} height="150"%></li>
+                    <li class="list-group-item bg-warning"><h3><i>{{ badge.description }}</i></h3>
+                    </li>
+                    <li class="list-group-item"><strong>{{ badge.category }} </strong> Category (4 Corner Model)</li>
+                </ul>
+
+                {% if badgesassessments %}
+                    <ol class="list-group-item bg-warning"><strong>Assessment Criteria</strong></ol>
+                {% endif %}
+                {% for assesment in badgesassessments %}
+
+                    {% if assesment.badgeId_id == badge.id %}
+                        <ol>
+
+                            <li class="list-group-item">
+                                <button type="button" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-ok-circle"></span>
+                                </button>
+
+                                {{ assesment.description }}</li>
+
+                        </ol>
+                    {% endif %}
+                {% endfor %}
+                </br>
+                </br>
+
+            {% endfor %}
+
+        {% endif %}
+
+        {% for video in badgevideos %}
+            {% if video.badgeId_id == badge.id %}
+                <ol>
+                    <li class="list-group-item">
+                        <button type="button" class="btn btn-primary btn-sm">
+                            <span class="fa fa-youtube"></span>
+                        </button>
+                        <a target="_blank" href={{ video.pageUrl }}> {{ video.description }}</li>
+                    </a>
+
+                </ol>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
