@@ -17,6 +17,8 @@ def getPointsCount(list, key):
         return firstlist.get('count')
 
 
-def cut(value, arg):
-    """Removes all values of arg from the given string"""
-    return value.replace(arg, '')
+@register.filter(name='getBadgeData')
+def getBadgeData(list, key):
+    if list and isinstance(list, dict) and list.get(key):
+        firstlist = list.get(key)
+        return firstlist.get('player_completion_percent')

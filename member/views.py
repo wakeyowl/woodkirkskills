@@ -85,7 +85,8 @@ def challengebadges(request):
 
     badgeassessment_list = BadgeAssesments.objects.all()
     badge_videos = BadgeVideos.objects.all()
-    context_dict = {'badgecounts': badge_counts, 'merit': meritbadge_list, 'meritassessments': badgeassessment_list, 'badgevideos': badge_videos}
+    context_dict = {'badgecounts': badge_counts, 'merit': meritbadge_list, 'meritassessments': badgeassessment_list,
+                    'badgevideos': badge_videos}
     response = render(request, 'member/skillchallengebadges.html', context=context_dict)
     return response
 
@@ -188,13 +189,15 @@ def get_badge_dictionaries_levels(request, current_user_only):
     gold_badge_urls = q3.filter(levels='G')
 
     # Get Percentages
-    get_percentage_of_categories(request)
+    badgedata = get_percentages_of_categories(request)
     # chuck it all in some context dictionaries for the render object
     context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
-                    'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls, 'playerrating': player_rating, 'users': q}
+                    'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls, 'playerrating': player_rating,
+                    'users': q, 'badgedata': badgedata}
     return context_dict
 
-def get_percentage_of_categories(request):
+
+def get_percentages_of_categories(request):
     player_totals = Badges.objects.all()
     current_user = request.user.pk
     player_totals = Badges.objects.exclude(badgeawards__userId__badgeawards__isnull=True)
@@ -229,25 +232,56 @@ def get_percentage_of_categories(request):
     gold_percent = 0
     merit_percent = 0
     try:
-        allbadge_percent = round((player_all_badge_count / float(all_badge_count))*100,0)
+        allbadge_percent = round((player_all_badge_count / float(all_badge_count)) * 100, 0)
     except:
         pass
     try:
-        bronze_percent = round((player_bronze_badge_count / float(all_bronze_badge_count))*100,0)
+        bronze_percent = round((player_bronze_badge_count / float(all_bronze_badge_count)) * 100, 0)
     except:
         pass
     try:
-        silver_percent = round((player_silver_badge_count / float(all_silver_badge_count))*100,0)
+        silver_percent = round((player_silver_badge_count / float(all_silver_badge_count)) * 100, 0)
     except:
         pass
     try:
-        gold_percent = round((badge_counts['G']['count'] / float(all_gold_badge_count)) * 100,0)
+        gold_percent = round((player_gold_badge_count / float(all_gold_badge_count)) * 100, 0)
     except:
         pass
     try:
-        merit_percent = round((badge_counts['M']['count'] / float(all_merit_badge_count)) * 100,0)
+        merit_percent = round((player_merit_badge_count / float(all_merit_badge_count)) * 100, 0)
     except:
         pass
+
+    categories_to_check = ['bronze', 'silver', 'gold', 'merit']
+
+    percentages_of_categories = {}
+
+    percentages_of_categories['bronze'] = {
+        'total_badges_count': all_bronze_badge_count,
+        'player_badges_count': player_bronze_badge_count,
+        'player_completion_percent': bronze_percent
+    }
+
+    percentages_of_categories['silver'] = {
+        'total_badges_count': all_silver_badge_count,
+        'player_badges_count': player_silver_badge_count,
+        'player_completion_percent': silver_percent
+    }
+
+    percentages_of_categories['gold'] = {
+        'total_badges_count': all_gold_badge_count,
+        'player_badges_count': player_gold_badge_count,
+        'player_completion_percent': gold_percent
+    }
+
+    percentages_of_categories['merit'] = {
+        'total_badges_count': all_merit_badge_count,
+        'player_badges_count': player_merit_badge_count,
+        'player_completion_percent': merit_percent
+    }
+
+    return percentages_of_categories
+
 
 def get_badge_dictionaries_categories(request, current_user_only):
     # get the current user and filter the query
@@ -278,10 +312,10 @@ def get_badge_dictionaries_categories(request, current_user_only):
     social_badge_urls = q3.filter(category='Social')
     psychological_badge_urls = q3.filter(category='Psychological')
     # chuck it all in some context dictionaries for the render object
-    context_dict = {'badgecounts': badge_counts, 'technicalbadges': technical_badge_urls, 'physicalbadges': physical_badge_urls,
+    context_dict = {'badgecounts': badge_counts, 'technicalbadges': technical_badge_urls,
+                    'physicalbadges': physical_badge_urls,
                     'socialbadges': social_badge_urls, 'psychologicalbadges': psychological_badge_urls}
     return context_dict
-
 
 
 def skills_matrix(request):
@@ -327,7 +361,8 @@ def kickups(request):
     badgeassessment_list = BadgeAssesments.objects.all()
     coach_instructions_list = CoachInstuction.objects.all()
     badge_dict_name_list = get_badge_dictionaries_by_name(request, False)
-    context_dictionary =  {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list, 'coachinstructions': coach_instructions_list}
+    context_dictionary = {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list,
+                          'coachinstructions': coach_instructions_list}
     response = render(request, 'member/skills/kickups.html', context=context_dictionary)
     return response
 
@@ -339,7 +374,8 @@ def get_skill_page_by_uri(request):
     coach_instructions_list = CoachInstuction.objects.all()
     coach_instructions_list = coach_instructions_list.filter(badgeName=last_resource)
     badge_dict_name_list = get_badge_dictionaries_by_name(request, False)
-    context_dictionary =  {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list, 'coachinstructions': coach_instructions_list}
+    context_dictionary = {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list,
+                          'coachinstructions': coach_instructions_list}
     response = render(request, 'member/skills/skillpages.html', context=context_dictionary)
     return response
 
@@ -363,5 +399,3 @@ def add_member(request):
 class ListContactView(ListView):
     model = Contact
     template_name = 'contact_list.html'
-
-
