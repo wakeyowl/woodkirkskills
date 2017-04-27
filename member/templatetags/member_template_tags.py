@@ -17,8 +17,7 @@ def getPointsCount(list, key):
         return firstlist.get('count')
 
 
-@register.filter(name='getBadgeData')
-def getBadgeData(list, key):
+@register.filter(name='getCategoryCompletion')
+def getCategoryCompletion(list, key):
     if list and isinstance(list, dict) and list.get(key):
-        firstlist = list.get(key)
-        return firstlist.get('player_completion_percent')
+        return list.get(key)
