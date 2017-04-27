@@ -20,5 +20,5 @@ def getPointsCount(list, key):
 @register.filter(name='getCategoryCompletion')
 def getCategoryCompletion(list, key):
     if list and isinstance(list, dict):
-        value = list['bronze'].get('player_completion_percent')
+        value = list[key].get('player_completion_percent')
         return value
