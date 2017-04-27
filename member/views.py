@@ -186,11 +186,68 @@ def get_badge_dictionaries_levels(request, current_user_only):
     bronze_badge_urls = q3.filter(levels='B')
     silver_badge_urls = q3.filter(levels='S')
     gold_badge_urls = q3.filter(levels='G')
+
+    # Get Percentages
+    get_percentage_of_categories(request)
     # chuck it all in some context dictionaries for the render object
     context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
                     'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls, 'playerrating': player_rating, 'users': q}
     return context_dict
 
+def get_percentage_of_categories(request):
+    player_totals = Badges.objects.all()
+    current_user = request.user.pk
+    player_totals = Badges.objects.exclude(badgeawards__userId__badgeawards__isnull=True)
+    player_totals = player_totals.filter(badgeawards__userId=current_user)
+    # Get the total of each category
+    badge_counts = {}
+    for badge_cat in player_totals:
+        if not badge_counts.has_key(badge_cat.levels):
+            badge_counts[badge_cat.levels] = {
+                'item': badge_cat.levels,
+                'count': 0
+            }
+
+        badge_counts[badge_cat.levels]['count'] += 1
+    player_merit_badge_count = player_totals.filter(levels='M').count()
+    player_bronze_badge_count = player_totals.filter(levels='B').count()
+    player_silver_badge_count = player_totals.filter(levels='S').count()
+    player_gold_badge_count = player_totals.filter(levels='G').count()
+    player_all_badge_count = player_totals.filter().count()
+
+    all_badge_totals = Badges.objects.all()
+    all_merit_badge_count = all_badge_totals.filter(levels='M').count()
+    all_bronze_badge_count = all_badge_totals.filter(levels='B').count()
+    all_silver_badge_count = all_badge_totals.filter(levels='S').count()
+    all_gold_badge_count = all_badge_totals.filter(levels='G').count()
+    all_badge_count = all_badge_totals.filter().count()
+
+    # Set the percentages
+    allbadge_percent = 0
+    bronze_percent = 0
+    silver_percent = 0
+    gold_percent = 0
+    merit_percent = 0
+    try:
+        allbadge_percent = round((player_all_badge_count / float(all_badge_count))*100,0)
+    except:
+        pass
+    try:
+        bronze_percent = round((player_bronze_badge_count / float(all_bronze_badge_count))*100,0)
+    except:
+        pass
+    try:
+        silver_percent = round((player_silver_badge_count / float(all_silver_badge_count))*100,0)
+    except:
+        pass
+    try:
+        gold_percent = round((badge_counts['G']['count'] / float(all_gold_badge_count)) * 100,0)
+    except:
+        pass
+    try:
+        merit_percent = round((badge_counts['M']['count'] / float(all_merit_badge_count)) * 100,0)
+    except:
+        pass
 
 def get_badge_dictionaries_categories(request, current_user_only):
     # get the current user and filter the query
@@ -229,22 +286,6 @@ def get_badge_dictionaries_categories(request, current_user_only):
 
 def skills_matrix(request):
     response = render(request, 'member/skillsmatrix.html', {})
-    return response
-
-
-def attacking(request):
-    response = render(request, 'member/skills/attacking.html', {})
-    return response
-
-
-# def kickups(request):
-#     context_dictionary = get_badge_dictionaries_by_name(request, False)
-#     response = render(request, 'member/skills/kickups.html', context_dictionary)
-#     return response
-
-
-def defending(request):
-    response = render(request, 'member/skills/defending.html', {})
     return response
 
 
