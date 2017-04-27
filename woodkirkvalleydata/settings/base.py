@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-import os
 import json
+import os
+
 from django.core.exceptions import ImproperlyConfigured
 
 with open(os.environ.get('MYSITE_CONFIG')) as f:
@@ -45,9 +46,6 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'member/media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6sj+pwb&x-*sqntyhjt18#90@dwa3tket$8m6hpgq6u-1%c1&5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -100,17 +98,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'woodkirkvalleydata.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
