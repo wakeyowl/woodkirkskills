@@ -20,7 +20,7 @@
 
             {% if bronzebadges %}
 
-                <h4>Bronze Badges <span class="badge">{{ badgecounts| getBadgeCount:"B" }}</span>  </h4>
+                <h4>Bronze Badges <span class="badge">{{ badgecounts| getBadgeCount:"B" }}</span></h4>
                 <div class="list-group">
                 </br>
                 <li class="list-group-item">
@@ -31,14 +31,21 @@
                     {% endfor %}
                 </li>
             {% else %}
-                <h4>Bronze Badges  <span class="badge">{{ badgecounts| getBadgeCount:"B" }}</span> </h4>
+                <h4>Bronze Badges <span class="badge">{{ badgecounts| getBadgeCount:"B" }}</span></h4>
                 <h5><i>You don't have any bronze badges yet, grab a ball and get practicing! </i></h5>
 
             {% endif %}
 
 
             {% if silverbadges %}
-                <h4>Silver Badges <span class="badge">{{ badgecounts| getBadgeCount:"S" }}</span></h4>
+                <h4>Silver Badges <span class="badge">{{ badgecounts| getBadgeCount:"S" }}</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                             aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                            40% Complete (success)
+                        </div>
+                    </div>
+                </h4>
                 <li class="list-group-item">
                     {% for badge in silverbadges %}
 
@@ -54,7 +61,7 @@
 
 
             {% if goldbadges %}
-                <h4>Gold Badges <span class="badge">{{ badgecounts| getBadgeCount:"G" }}</span> </h4>
+                <h4>Gold Badges <span class="badge">{{ badgecounts| getBadgeCount:"G" }}</span></h4>
                 <li class="list-group-item">
                     {% for badge in goldbadges %}
 
@@ -63,14 +70,15 @@
                     {% endfor %}
                 </li>
             {% else %}
-                <h4>Gold Badges <span class="badge">{{ badgecounts| getBadgeCount:"G" }}</span>  </h4>
+                <h4>Gold Badges <span class="badge">{{ badgecounts| getBadgeCount:"G" }}</span></h4>
                 <h5><i>You don't have any Gold badges yet, grab a ball and get practicing! </i></h5>
 
             {% endif %}
 
 
             {% if meritbadges %}
-                <h4>Individual Skill Challenge Badges <span class="badge">{{ badgecounts| getBadgeCount:"M" }}</span> </h4>
+                <h4>Individual Skill Challenge Badges <span class="badge">{{ badgecounts| getBadgeCount:"M" }}</span>
+                </h4>
                 <li class="list-group-item">
                     {% for badge in meritbadges %}
 
@@ -79,7 +87,8 @@
                     {% endfor %}
                 </li>
             {% else %}
-                <h4>Individual Skill Challenge Badges <span class="badge">{{ badgecounts| getBadgeCount:"M" }}</span></h4>
+                <h4>Individual Skill Challenge Badges <span class="badge">{{ badgecounts| getBadgeCount:"M" }}</span>
+                </h4>
                 <h5><i>You don't have any Merit badges yet, get practicing! </i></h5>
 
             {% endif %}
