@@ -7,22 +7,37 @@
 
     <div class="jumbotron text-center">
         <div class="container">
-            <h2 class="jumbotron-heading">Kick-Ups</h2>
+            <li class="list-group-item">
+                <h2>
+                    {% for badge in badges %} &nbsp;
+                        {{ badge.description }}
+                    {% endfor %}
+
+                </h2>
+            </li>
+            </br>
+
+            {% for instruction in coachinstructions %}
+
+                {% if instruction.tipType == 'I' %}
+                    <li class="list-group-item bg-success">
+
+                        <span class="fa fa-check"></span> {{ instruction.description }}
+
+
+                    </li>
+                {% else %}
+
+                {% endif %}
+
+
+            {% endfor %}
 
             <div class="col-md-6">
-                <ul style="text-align: left">
-                    <li>Singles kick and catch</li>
-                    <li>Use both feet</li>
-                    <li>Increase to two kicks then catch so you can do it consistently</li>
-                </ul>
+
             </div>
 
             <div class="col-md-6">
-                <ul style="text-align: left">
-                    <li>Keep increasing as your confidence grows</li>
-                    <li>Try bounce kickups - 1 bounce / 1 kick / 1 bounce ...</li>
-                    <li>Use different body parts</li>
-                </ul>
 
 
             </div>
@@ -40,20 +55,23 @@
             </li>
             {% if coachinstructions %}
                 <ol>
-                    {% for instruction in coachinstructions %}
+                <li class="list-group-item">
+                {% for instruction in coachinstructions %}
 
-                        <li class="list-group-item">
 
-                        {% if instruction.tipType == 'T' %}
-                            <button type="button" class="btn btn-success btn-default">
-                            <span class="fa fa-check"></span>
-                        {% else %}
-                            <button type="button" class="btn btn-danger btn-default">
-                            <span class="fa fa-times"></span>
-                        {% endif %}
+
+                    {% if instruction.tipType == 'T' %}
+                        <button type="button" class="btn btn-success btn-default">
+                        <span class="fa fa-check"></span>
                         </button>
                         {{ instruction.description }}
-                    {% endfor %}
+                    {% elif instruction.tipType == 'W' %}
+                        <button type="button" class="btn btn-danger btn-default">
+                            <span class="fa fa-times"></span>
+                        </button>
+                        {{ instruction.description }}
+                    {% endif %}
+                {% endfor %}
                 </ol>
             {% endif %}
 
@@ -104,8 +122,8 @@
                         <button type="button" class="btn btn-primary btn-sm">
                             <span class="fa fa-youtube"></span>
                         </button>
-                        <a target="_blank" href={{ video.pageUrl }}> {{ video.description }}</li>
-                    </a>
+                        <a target="_blank" href={{ video.pageUrl }}></a> {{ video.description }}</li>
+
 
                 </ol>
             {% endif %}
