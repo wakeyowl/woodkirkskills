@@ -42,7 +42,6 @@
 
             </div>
 
-
         </div>
     </div>
 
@@ -55,23 +54,23 @@
             </li>
             {% if coachinstructions %}
                 <ol>
-                <li class="list-group-item">
-                {% for instruction in coachinstructions %}
 
+                        {% for instruction in coachinstructions %}
 
-
-                    {% if instruction.tipType == 'T' %}
-                        <button type="button" class="btn btn-success btn-default">
-                        <span class="fa fa-check"></span>
-                        </button>
-                        {{ instruction.description }}
-                    {% elif instruction.tipType == 'W' %}
-                        <button type="button" class="btn btn-danger btn-default">
-                            <span class="fa fa-times"></span>
-                        </button>
-                        {{ instruction.description }}
-                    {% endif %}
-                {% endfor %}
+                            {% if instruction.tipType == 'T' %}
+                                <li class="list-group-item">
+                                <button type="button" class="btn btn-success btn-default">
+                                    <span class="fa fa-check"></span>
+                                </button>
+                                {{ instruction.description }}
+                            {% elif instruction.tipType == 'W' %}
+                                <li class="list-group-item">
+                                <button type="button" class="btn btn-danger btn-default">
+                                    <span class="fa fa-times"></span>
+                                </button>
+                                {{ instruction.description }}
+                            {% endif %}
+                        {% endfor %}
                 </ol>
             {% endif %}
 
@@ -89,6 +88,21 @@
                     </li>
                     <li class="list-group-item"><strong>{{ badge.category }} </strong> Category (4 Corner Model)</li>
                 </ul>
+                <li class="list-group-item bg-warning"><strong>Video Clips</strong></li>
+                {% for video in badgevideos %}
+                    {% if video.badgeId_id == badge.id %}
+                        <ol>
+                            <li class="list-group-item">
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    <span class="fa fa-youtube"></span>
+                                </button>
+                                <a target="_blank" href={{ video.pageUrl }}>{{ video.description }}</li>
+                            </a>
+
+                        </ol>
+                    {% endif %}
+                {% endfor %}
+                </br>
 
                 {% if badgesassessments %}
                     <ol class="list-group-item bg-warning"><strong>Assessment Criteria</strong></ol>
@@ -115,19 +129,7 @@
 
         {% endif %}
 
-        {% for video in badgevideos %}
-            {% if video.badgeId_id == badge.id %}
-                <ol>
-                    <li class="list-group-item">
-                        <button type="button" class="btn btn-primary btn-sm">
-                            <span class="fa fa-youtube"></span>
-                        </button>
-                        <a target="_blank" href={{ video.pageUrl }}></a> {{ video.description }}</li>
 
-
-                </ol>
-            {% endif %}
-        {% endfor %}
         </ul>
     </div>
 

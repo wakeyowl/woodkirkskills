@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR, '..templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'templates/member/../member/static')
 MEDIA_DIR = os.path.join(BASE_DIR, 'member/media')
 
@@ -23,6 +23,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'member/media')
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+#
 SECRET_KEY = '6sj+pwb&x-*sqntyhjt18#90@dwa3tket$8m6hpgq6u-1%c1&5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -88,25 +89,25 @@ WSGI_APPLICATION = 'woodkirkvalleydata.wsgi.application'
 
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     # The following settings are not used with sqlite3:
-    #     'NAME': 'woodkirkskills$woodkirkdb',
-    #     'USER': 'woodkirkskills',
-    #     'PASSWORD': 'v0n-neumann',
-    #     'HOST': 'woodkirkskills.mysql.pythonanywhere-services.com',
-    #     # Empty for localhost through domain sockets or   '127.0.0.1' for localhost through TCP.
-    #     'PORT': '',
-    # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         # The following settings are not used with sqlite3:
-        'NAME': 'woodkirkdata',
-        'USER': 'root',
+        'NAME': 'woodkirkskills$woodkirkdb',
+        'USER': 'woodkirkskills',
         'PASSWORD': 'v0n-neumann',
-        'HOST': '',  # Empty for localhost through domain sockets or   '127.0.0.1' for localhost through TCP.
+        'HOST': 'woodkirkskills.mysql.pythonanywhere-services.com',
+        # Empty for localhost through domain sockets or   '127.0.0.1' for localhost through TCP.
         'PORT': '',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     # The following settings are not used with sqlite3:
+    #     'NAME': 'woodkirkdata',
+    #     'USER': 'root',
+    #     'PASSWORD': 'v0n-neumann',
+    #     'HOST': '',  # Empty for localhost through domain sockets or   '127.0.0.1' for localhost through TCP.
+    #     'PORT': '',
+    # }
 
 }
 

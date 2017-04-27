@@ -1,6 +1,5 @@
 from django.conf.urls import url
 
-import member
 from member import views
 
 urlpatterns = [
@@ -16,8 +15,8 @@ urlpatterns = [
     url(r'^skillsmatrix/social/defending/$', views.get_skill_page_by_uri, name='skillpages'),
     url(r'^skillsmatrix/physical/dribbling/$', views.get_skill_page_by_uri, name='skillpages'),
     url(r'^skillsmatrix/physical/heading/$', views.get_skill_page_by_uri, name='skillpages'),
-    url(r'^skillsmatrix/social/leadership/$', views.leadership, name='leadership'),
-    url(r'^skillsmatrix/social/teamwork/$', views.teamwork, name='teamwork'),
+    url(r'^skillsmatrix/social/leadership/$', views.get_skill_page_by_uri, name='leadership'),
+    url(r'^skillsmatrix/social/teamwork/$', views.get_skill_page_by_uri, name='teamwork'),
     # Menu URLs
     url(r'^mybadges/$', views.mybadges, name='mybadges'),
     url(r'^allbadges/$', views.allbadges, name='allbadges'),
