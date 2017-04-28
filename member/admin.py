@@ -19,14 +19,16 @@ class CoachInstuctionAdmin(admin.ModelAdmin):
 
 
 class BadgesAdmin(admin.ModelAdmin):
-    list_display2 = ('name', 'category', 'levels')
+    list_display = ('name', 'category', 'levels')
 
-    class Meta:
-        verbose_name_plural = "badges"
+
+class BadgeVideosAdmin(admin.ModelAdmin):
+    list_display = ('badgeId', 'pageUrl', 'description', )
+
 
 admin.site.register(BadgeAwards, BadgeAwardAdmin)
 admin.site.register(UserMember, UserMemberAdmin)
 admin.site.register(Badges, BadgesAdmin)
-admin.site.register(BadgeVideos)
+admin.site.register(BadgeVideos, BadgeVideosAdmin)
 admin.site.register(CoachInstuction, CoachInstuctionAdmin)
 admin.site.register(BadgeAssesments, BadgeAssessmentsAdmin)
