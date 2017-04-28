@@ -1,4 +1,5 @@
 from datetime import datetime
+from os.path import normpath, basename
 
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -6,7 +7,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views.generic import ListView
 from registration.backends.simple.views import RegistrationView
-from os.path import normpath, basename
+
 from member.forms import UserMemberForm
 from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeVideos, CoachInstuction
 
@@ -323,16 +324,6 @@ def skills_matrix(request):
     return response
 
 
-def teamwork(request):
-    response = render(request, 'member/skills/teamwork.html', {})
-    return response
-
-
-def leadership(request):
-    response = render(request, 'member/skills/leadership.html', {})
-    return response
-
-
 def technical(request):
     context_dict = get_badge_dictionaries_categories(request, False)
     response = render(request, 'member/technical.html', context=context_dict)
@@ -357,15 +348,6 @@ def psychological(request):
     return response
 
 
-def kickups(request):
-    badgeassessment_list = BadgeAssesments.objects.all()
-    coach_instructions_list = CoachInstuction.objects.all()
-    badge_dict_name_list = get_badge_dictionaries_by_name(request, False)
-    context_dictionary = {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list,
-                          'coachinstructions': coach_instructions_list}
-    response = render(request, 'member/skills/kickups.html', context=context_dictionary)
-    return response
-
 
 def get_skill_page_by_uri(request):
     new_path = request.get_full_path()
@@ -374,8 +356,9 @@ def get_skill_page_by_uri(request):
     coach_instructions_list = CoachInstuction.objects.all()
     coach_instructions_list = coach_instructions_list.filter(badgeName=last_resource)
     badge_dict_name_list = get_badge_dictionaries_by_name(request, False)
+    badge_videos = BadgeVideos.objects.all()
     context_dictionary = {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list,
-                          'coachinstructions': coach_instructions_list}
+                          'coachinstructions': coach_instructions_list, 'badgevideos': badge_videos}
     response = render(request, 'member/skills/skillpages.html', context=context_dictionary)
     return response
 
