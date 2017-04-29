@@ -228,7 +228,7 @@
     "pk": 1,
     "fields": {
       "name": "First Touch",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "B",
       "pageUrl": "/member/skillsmatrix/technical/firsttouch/",
       "iconUrl": "/images/badges/firsttouch-bronze.png",
@@ -241,7 +241,7 @@
     "pk": 2,
     "fields": {
       "name": "First Touch",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "S",
       "pageUrl": "/member/skillsmatrix/technical/firsttouch/",
       "iconUrl": "/images/badges/firsttouch-silver.png",
@@ -253,7 +253,7 @@
     "pk": 3,
     "fields": {
       "name": "First Touch",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "G",
       "pageUrl": "/member/skillsmatrix/technical/firsttouch/",
       "iconUrl": "/images/badges/firsttouch-gold.png",
@@ -265,7 +265,7 @@
     "pk": 4,
     "fields": {
       "name": "Goalkeeper",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "B",
       "pageUrl": "/member/skillsmatrix/technical/goalkeeper/",
       "iconUrl": "/images/badges/goalkeeping-bronze.png",
@@ -277,7 +277,7 @@
     "pk": 5,
     "fields": {
       "name": "Goalkeeper",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "S",
       "pageUrl": "/member/skillsmatrix/technical/goalkeeper/",
       "iconUrl": "/images/badges/goalkeeping-silver.png",
@@ -289,7 +289,7 @@
     "pk": 6,
     "fields": {
       "name": "Goalkeeper",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "G",
       "pageUrl": "/member/skillsmatrix/technical/goalkeeper/",
       "iconUrl": "/images/badges/goalkeeping-gold.png",
@@ -301,7 +301,7 @@
     "pk": 7,
     "fields": {
       "name": "Passing",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "B",
       "pageUrl": "/member/skillsmatrix/technical/passing/",
       "iconUrl": "/images/badges/passing-bronze.png",
@@ -313,7 +313,7 @@
     "pk": 8,
     "fields": {
       "name": "Passing",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "S",
       "pageUrl": "/member/skillsmatrix/technical/passing/",
       "iconUrl": "/images/badges/passing-silver.png",
@@ -326,7 +326,7 @@
     "pk": 9,
     "fields": {
       "name": "Passing",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "G",
       "pageUrl": "/member/skillsmatrix/technical/passing/",
       "iconUrl": "/images/badges/passing-gold.png",
@@ -338,7 +338,7 @@
     "pk": 10,
     "fields": {
       "name": "Goalscorer",
-      "category": "TECH",
+      "category": "TECHNICAL",
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/technical/goalscorer/",
       "iconUrl": "/images/badges/goalscorer-merit.png",

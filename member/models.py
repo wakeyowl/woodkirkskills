@@ -56,7 +56,7 @@ class Badges(models.Model):
         (BRONZE, 'Bronze'),
         (MERIT, 'Merit'),
     )
-    TECHNICAL = 'TECH'
+    TECHNICAL = 'TECHNICAL'
     PSYCHOLOGICAL = 'PSYCHOLOGICAL'
     PHYSICAL = 'PHYSICAL'
     SOCIAL = 'SOCIAL'
