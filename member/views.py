@@ -348,7 +348,6 @@ def psychological(request):
     return response
 
 
-
 def get_skill_page_by_uri(request):
     new_path = request.get_full_path()
     last_resource = basename(normpath(new_path))
