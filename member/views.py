@@ -353,7 +353,7 @@ def get_skill_page_by_uri(request):
     last_resource = basename(normpath(new_path))
     badgeassessment_list = BadgeAssesments.objects.all()
     coach_instructions_list = CoachInstuction.objects.all()
-    coach_instructions_list = coach_instructions_list.filter(badgeName=last_resource)
+    coach_instructions_list = coach_instructions_list.filter(badgeName=last_resource).order_by('tipType')
     badge_dict_name_list = get_badge_dictionaries_by_name(request, False)
     badge_videos = BadgeMedia.objects.all()
     context_dictionary = {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list,
