@@ -9,7 +9,7 @@ from django.views.generic import ListView
 from registration.backends.simple.views import RegistrationView
 
 from member.forms import UserMemberForm
-from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeVideos, CoachInstuction
+from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction
 
 
 class WoodkirkRegistrationView(RegistrationView):
@@ -85,7 +85,7 @@ def challengebadges(request):
         badge_counts[badge_cat.levels]['count'] += 1
 
     badgeassessment_list = BadgeAssesments.objects.all()
-    badge_videos = BadgeVideos.objects.all()
+    badge_videos = BadgeMedia.objects.all()
     context_dict = {'badgecounts': badge_counts, 'merit': meritbadge_list, 'meritassessments': badgeassessment_list,
                     'badgevideos': badge_videos}
     response = render(request, 'member/skillchallengebadges.html', context=context_dict)
@@ -355,7 +355,7 @@ def get_skill_page_by_uri(request):
     coach_instructions_list = CoachInstuction.objects.all()
     coach_instructions_list = coach_instructions_list.filter(badgeName=last_resource)
     badge_dict_name_list = get_badge_dictionaries_by_name(request, False)
-    badge_videos = BadgeVideos.objects.all()
+    badge_videos = BadgeMedia.objects.all()
     context_dictionary = {'badges': badge_dict_name_list, 'badgesassessments': badgeassessment_list,
                           'coachinstructions': coach_instructions_list, 'badgevideos': badge_videos}
     response = render(request, 'member/skills/skillpages.html', context=context_dictionary)

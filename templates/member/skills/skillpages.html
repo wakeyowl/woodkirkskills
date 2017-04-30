@@ -1,5 +1,7 @@
 {% extends 'member/base_bootstrap.html' %}
 {% load staticfiles %}
+{% load static %}
+{#{% get_media_prefix as MEDIA_PREFIX %}#}
 {% block title_block %}
     Individual Skills
 {% endblock %}
@@ -55,22 +57,22 @@
             {% if coachinstructions %}
                 <ol>
 
-                        {% for instruction in coachinstructions %}
+                    {% for instruction in coachinstructions %}
 
-                            {% if instruction.tipType == 'T' %}
-                                <li class="list-group-item">
+                        {% if instruction.tipType == 'T' %}
+                            <li class="list-group-item">
                                 <button type="button" class="btn btn-success btn-default">
                                     <span class="fa fa-check"></span>
                                 </button>
                                 {{ instruction.description }}
-                            {% elif instruction.tipType == 'W' %}
-                                <li class="list-group-item">
-                                <button type="button" class="btn btn-danger btn-default">
-                                    <span class="fa fa-times"></span>
-                                </button>
-                                {{ instruction.description }}
-                            {% endif %}
-                        {% endfor %}
+                                {% elif instruction.tipType == 'W' %}
+                            <li class="list-group-item">
+                            <button type="button" class="btn btn-danger btn-default">
+                                <span class="fa fa-times"></span>
+                            </button>
+                            {{ instruction.description }}
+                        {% endif %}
+                    {% endfor %}
                 </ol>
             {% endif %}
 
@@ -88,16 +90,37 @@
                     </li>
                     <li class="list-group-item"><strong>{{ badge.category }} </strong> Category (4 Corner Model)</li>
                 </ul>
-                <li class="list-group-item bg-warning"><strong>Video Clips</strong></li>
+                <li class="list-group-item bg-warning"><strong>Support Links</strong></li>
                 {% for video in badgevideos %}
                     {% if video.badgeId_id == badge.id %}
                         <ol>
-                            <li class="list-group-item">
-                                <button type="button" class="btn btn-primary btn-sm">
-                                    <span class="fa fa-youtube"></span>
-                                </button>
-                                <a target="_blank" href={{ video.pageUrl }}>{{ video.description }}</li>
-                            </a>
+                            {% if video.mediaType == 'PDF' %}
+                                <li class="list-group-item">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        <span class="fa fa-file-pdf-o"></span>
+                                    </button>
+{#                                    Used the get_static prefix to get the media files     #}
+                                    <a target="_blank"
+                                       href="{% get_static_prefix %}{{video.pageUrl }}">
+                                                   {{ video.description  }} </a>
+
+                                        {% elif video.mediaType == 'VIDEO' %}
+                                <li class="list-group-item">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        <span class="fa fa-youtube"></span>
+                                    </button>
+                                    <a target="_blank" href={{ video.pageUrl }}>{{ video.description }}</li>
+                                </a>
+
+                            {% elif video.mediaType == 'HREF' %}
+                                <li class="list-group-item">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        <span class="fa fa-internet-explorer"></span>
+                                    </button>
+                                    <a target="_blank" href={{ video.pageUrl }}>{{ video.description }}</li>
+                                </a>
+                            {% endif %}
+
 
                         </ol>
                     {% endif %}

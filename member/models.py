@@ -106,13 +106,22 @@ class BadgeAwards(models.Model):
         return BadgeAwards.objects.filter(choice=self).count()
 
 
-class BadgeVideos(models.Model):
+class BadgeMedia(models.Model):
     badgeId = models.ForeignKey(Badges, on_delete=models.CASCADE)
     pageUrl = models.CharField(max_length=200)
     description = models.CharField(max_length=250)
+    VIDEO = 'VIDEO'
+    PPF = 'PDF'
+    LINK = 'HREF'
+    MEDIA_TYPES = (
+        (VIDEO, 'Video'),
+        (PPF, 'Pdf'),
+        (LINK, 'URL Link'),
+    )
+    mediaType = models.CharField(max_length=255, choices=MEDIA_TYPES)
 
     class Meta:
-        verbose_name_plural = "Badge Videos"
+        verbose_name_plural = "Badge Media"
 
     def __str__(self):
         return self.description
