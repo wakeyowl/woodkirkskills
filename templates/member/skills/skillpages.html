@@ -10,12 +10,12 @@
     <div class="jumbotron text-center">
         <div class="container">
             <li class="list-group-item">
-                <h2>
-                    {% for badge in badges %} &nbsp;
-                        {{ badge.description }}
+                <h4>
+                    {% for badge in badges %} </br>
+                        <img src={% static badge.iconUrl %} height="75"> {{ badge.description }}
                     {% endfor %}
 
-                </h2>
+                </h4>
             </li>
             </br>
 
