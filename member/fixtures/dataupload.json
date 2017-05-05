@@ -114,7 +114,7 @@
       "name": "Goalscorer",
       "category": "TECHNICAL",
       "levels": "M",
-      "pageUrl": "/member/skillsmatrix/technical/goalscorer/",
+      "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/goalscorer-merit.png",
       "description": "Master the Art of goalscoring!"
     }
@@ -792,6 +792,46 @@
     }
   },
   {
+    "model": "member.badgeassesments",
+    "pk": 47,
+    "fields": {
+      "badgeId": 7,
+      "description": "The weight of pass to the target is important"
+    }
+  },
+  {
+    "model": "member.badgeassesments",
+    "pk": 48,
+    "fields": {
+      "badgeId": 7,
+      "description": "The passes into the target goals should be alternative Left/Right"
+    }
+  },
+  {
+    "model": "member.badgeassesments",
+    "pk": 49,
+    "fields": {
+      "badgeId": 4,
+      "description": "The player should be able to collect 70% of shots"
+    }
+  },
+  {
+    "model": "member.badgeassesments",
+    "pk": 50,
+    "fields": {
+      "badgeId": 4,
+      "description": "The player should be able to demonstrate the W, Scoop and Cup"
+    }
+  },
+  {
+    "model": "member.badgeassesments",
+    "pk": 51,
+    "fields": {
+      "badgeId": 4,
+      "description": "The player can roll the ball out underarm to a player 10m away."
+    }
+  },
+  {
     "model": "member.badgemedia",
     "pk": 1,
     "fields": {
@@ -816,8 +856,8 @@
     "pk": 4,
     "fields": {
       "badgeId": 8,
-      "pageUrl": "pdf/passing-support-play.pdf",
-      "description": "Passing Assessment",
+      "pageUrl": "pdf/passing-silver-assessment.pdf",
+      "description": "Passing Silver Assessment",
       "mediaType": "PDF"
     }
   },
@@ -859,6 +899,226 @@
       "pageUrl": "pdf/firsttouch-silver-assessment.pdf",
       "description": "First Touch Silver Assessment",
       "mediaType": "PDF"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 9,
+    "fields": {
+      "badgeId": 7,
+      "pageUrl": "pdf/passing-bronze-assessment.pdf",
+      "description": "Passing Bronze Assessment  ",
+      "mediaType": "PDF"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 10,
+    "fields": {
+      "badgeId": 8,
+      "pageUrl": "https://www.youtube.com/watch?v=xvaD2AamMpU",
+      "description": "Passing Quick Drills",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 11,
+    "fields": {
+      "badgeId": 10,
+      "pageUrl": "https://www.youtube.com/watch?v=tcoRi1OxFmo",
+      "description": "Shooting Drills",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 12,
+    "fields": {
+      "badgeId": 4,
+      "pageUrl": "https://www.sportsessionplanner.com/s/SX3S/Goalkeeping---Decision-of-Techniques-(Scoop-Cup-W).html",
+      "description": "Goalkeeping Basics (Scoop, W & Cup)",
+      "mediaType": "HREF"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 13,
+    "fields": {
+      "badgeId": 4,
+      "pageUrl": "pdf/goalkeeping-bronze-assessment.pdf",
+      "description": "Goalkeeping Bronze Assessment",
+      "mediaType": "PDF"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 14,
+    "fields": {
+      "badgeId": 4,
+      "pageUrl": "http://www.seriousgoalkeeping.net/Techniques/GoalkeeperTechniquesReadyPositions.aspx",
+      "description": "Goalkeeping Hand Positions",
+      "mediaType": "HREF"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 15,
+    "fields": {
+      "badgeId": 7,
+      "pageUrl": "https://www.youtube.com/watch?v=pRZ-2MOEivM",
+      "description": "Passing Drills I",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 16,
+    "fields": {
+      "badgeId": 7,
+      "pageUrl": "https://www.youtube.com/watch?v=Sm-u_ESEmjE",
+      "description": "Passing Technique I",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 17,
+    "fields": {
+      "badgeId": 11,
+      "pageUrl": "https://www.youtube.com/watch?v=Nxr9Pev3e_0",
+      "description": "Kickups I",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 18,
+    "fields": {
+      "badgeId": 12,
+      "pageUrl": "https://www.youtube.com/watch?v=MBiUt_DRSu0",
+      "description": "Kickups II",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 19,
+    "fields": {
+      "badgeId": 13,
+      "pageUrl": "https://www.youtube.com/watch?v=rc2R4X1427s",
+      "description": "Kickups III",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 20,
+    "fields": {
+      "badgeId": 14,
+      "pageUrl": "https://www.youtube.com/watch?v=2e0TwCa-jXU",
+      "description": "ToeTaps Tops",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 21,
+    "fields": {
+      "badgeId": 15,
+      "pageUrl": "https://www.youtube.com/watch?v=07lrS7lcm1E",
+      "description": "ToeTaps Side",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 22,
+    "fields": {
+      "badgeId": 16,
+      "pageUrl": "https://www.youtube.com/watch?v=KAHzxiYPIPU",
+      "description": "ToeTaps Advanced",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 23,
+    "fields": {
+      "badgeId": 17,
+      "pageUrl": "https://www.youtube.com/watch?v=zVEeum8wA6U",
+      "description": "Cryuff Turn Technique",
+      "mediaType": "VIDEO"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 24,
+    "fields": {
+      "badgeId": 17,
+      "pageUrl": "https://www.youtube.com/watch?v=cYNfy1fIA5w",
+      "description": "Cryuff Turn Examples",
+      "mediaType": "VIDEOS"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 25,
+    "fields": {
+      "badgeId": 22,
+      "pageUrl": "https://www.youtube.com/watch?v=YwPqQWij1aQ",
+      "description": "Zidane Turn Examples",
+      "mediaType": "VIDEOS"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 26,
+    "fields": {
+      "badgeId": 22,
+      "pageUrl": "https://www.youtube.com/watch?v=zVEeum8wA6U",
+      "description": "Zidane Turn Technique",
+      "mediaType": "VIDEOS"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 27,
+    "fields": {
+      "badgeId": 18,
+      "pageUrl": "https://www.youtube.com/watch?v=YpuAC0whCY4",
+      "description": "Drag Back Turn Technique",
+      "mediaType": "VIDEOS"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 28,
+    "fields": {
+      "badgeId": 19,
+      "pageUrl": "https://www.youtube.com/watch?v=Gms0BBPdGiY",
+      "description": "Hook Turns Technique",
+      "mediaType": "VIDEOS"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 29,
+    "fields": {
+      "badgeId": 20,
+      "pageUrl": "https://www.youtube.com/watch?v=t5TDr1lfh8g",
+      "description": "Ronaldo Chop Technique",
+      "mediaType": "VIDEOS"
+    }
+  },
+  {
+    "model": "member.badgemedia",
+    "pk": 30,
+    "fields": {
+      "badgeId": 21,
+      "pageUrl": "https://www.youtube.com/watch?v=Z2XcxeCE-1M",
+      "description": "Step Over Turn Technique",
+      "mediaType": "VIDEOS"
     }
   },
   {
@@ -1111,6 +1371,69 @@
       "badgeName": "firsttouch",
       "tipType": "T",
       "description": "First touch should place the ball ready for the next movement"
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 32,
+    "fields": {
+      "badgeName": "goalkeeper",
+      "tipType": "I",
+      "description": "Use stong technique to collect the ball (Scoop, W and Cup)"
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 33,
+    "fields": {
+      "badgeName": "goalkeeper",
+      "tipType": "T",
+      "description": "Always be on your toes to support you reactions"
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 34,
+    "fields": {
+      "badgeName": "goalkeeper",
+      "tipType": "I",
+      "description": "Use good footwork to narrow the angles of the shot (ABC's)"
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 35,
+    "fields": {
+      "badgeName": "goalkeeper",
+      "tipType": "I",
+      "description": "Good pass distribution using hands and feet (off the floor and out of hands) "
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 36,
+    "fields": {
+      "badgeName": "goalkeeper",
+      "tipType": "I",
+      "description": "Make good decisions about your positioning"
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 37,
+    "fields": {
+      "badgeName": "goalkeeper",
+      "tipType": "T",
+      "description": "Your hands should be in the correct positons"
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 38,
+    "fields": {
+      "badgeName": "toetaps",
+      "tipType": "T",
+      "description": "Use different parts of the feet increasing speed and ball manipulations"
     }
   }
 ]
