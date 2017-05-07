@@ -1,5 +1,5 @@
 from django.contrib import admin
-from member.models import BadgeAwards, Badges, BadgeMedia, CoachInstuction, BadgeAssesments, UserMember
+from member.models import BadgeAwards, Badges, BadgeMedia, CoachInstuction, BadgeAssesments, UserMember, TeamManagers
 
 
 class BadgeAwardAdmin(admin.ModelAdmin):
@@ -7,7 +7,7 @@ class BadgeAwardAdmin(admin.ModelAdmin):
 
 
 class UserMemberAdmin(admin.ModelAdmin):
-    list_display = ('user', 'full_name')
+    list_display = ('user', 'full_name', 'favourite_player', 'favourite_team', 'managerId_id')
 
 
 class BadgeAssessmentsAdmin(admin.ModelAdmin):
@@ -22,6 +22,10 @@ class BadgesAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'levels')
 
 
+class TeamManagerAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'team')
+
+
 class BadgeMediaAdmin(admin.ModelAdmin):
     list_display = ('badgeId', 'pageUrl', 'description', 'mediaType')
 
@@ -32,3 +36,4 @@ admin.site.register(Badges, BadgesAdmin)
 admin.site.register(BadgeMedia, BadgeMediaAdmin)
 admin.site.register(CoachInstuction, CoachInstuctionAdmin)
 admin.site.register(BadgeAssesments, BadgeAssessmentsAdmin)
+admin.site.register(TeamManagers, TeamManagerAdmin)
