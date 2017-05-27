@@ -29,7 +29,8 @@ SECRET_KEY = '6sj+pwb&x-*sqntyhjt18#90@dwa3tket$8m6hpgq6u-1%c1&5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['woodkirkskills.pythonanywhere.com', 'wakeyowl.pythonanywhere.com', 'wakeyowl.mysql.pythonanywhere-services.com', '127.0.0.1', 'wvfcskills.pythonanywhere.com']
+ALLOWED_HOSTS = ['woodkirkskills.pythonanywhere.com', 'wakeyowl.pythonanywhere.com',
+                 'wakeyowl.mysql.pythonanywhere-services.com', '127.0.0.1', 'wvfcskills.pythonanywhere.com']
 
 # Application definition
 
@@ -98,7 +99,12 @@ DATABASES = {
         'HOST': 'woodkirkskills.mysql.pythonanywhere-services.com',
         # Empty for localhost through domain sockets or   '127.0.0.1' for localhost through TCP.
         'PORT': '',
+        'OPTIONS': {
+            "init_command": "SET foreign_key_checks = 0;",
+            'sql_mode': 'traditional',
+        }
     }
+
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
     #     # The following settings are not used with sqlite3:
@@ -109,9 +115,7 @@ DATABASES = {
     #     'PORT': '',
     # }
 
-}
-
-# Password validation
+}  # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -127,9 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-]
-
-# Internationalization
+]  # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
