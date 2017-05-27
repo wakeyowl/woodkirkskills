@@ -9,7 +9,7 @@ from django.views.generic import ListView
 from registration.backends.simple.views import RegistrationView
 
 from member.forms import UserMemberForm
-from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction
+from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction, BadgeAwards
 
 
 class WoodkirkRegistrationView(RegistrationView):
@@ -189,12 +189,17 @@ def get_badge_dictionaries_levels(request, current_user_only):
     silver_badge_urls = q3.filter(levels='S')
     gold_badge_urls = q3.filter(levels='G')
 
+    # Get Badge Award History using select_related to get badge info also on FK's
+    badge_awards_list = BadgeAwards.objects.all()
+    badge_awards_list = badge_awards_list.filter(userId_id=current_user)
+    badge_awards_list = badge_awards_list.select_related().order_by('-dateAwarded')
+
     # Get Percentages
     badgedata = get_percentages_of_categories(request)
     # chuck it all in some context dictionaries for the render object
     context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
                     'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls, 'playerrating': player_rating,
-                    'users': q, 'badgedata': badgedata}
+                    'users': q, 'badgedata': badgedata, 'badge_awards': badge_awards_list}
     return context_dict
 
 

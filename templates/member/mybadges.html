@@ -10,12 +10,44 @@
     <div class="jumbotron">
 
         <div class="page-header">
-            <h2>My Badges</h2>
-            <h3><span class="fa fa-user-circle" aria-hidden="true"></span> {{ user.username }}</h3>
-            <h4><i>{{ playerrating }} <span style="text-shadow: 2px 2px 4px #000; color: yellow;" class="fa fa-star"
-                                            aria-hidden="true"></span>
-                - Badge Points </i></h4>
-            </br>
+
+            <div class="row">
+                <div class="col-sm-3"><h2>My Badges</h2>
+                    <h3><span class="fa fa-user-circle" aria-hidden="true"></span> {{ user.username }}</h3>
+                    <h4><i>{{ playerrating }} <span style="text-shadow: 2px 2px 4px #000; color: yellow;"
+                                                    class="fa fa-star"
+                                                    aria-hidden="true"></span>
+                        - Badge Points </i></h4>
+                    </br>
+                </div>
+                <div class="col-sm-9">
+                    <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#history">Badge History
+                    </button>
+                    <div id="history" class="collapse">
+                        <table style="width:100%">
+                            <tr>
+                                <th>Description</th>
+                                <th>Date Awarded</th>
+                                <th>Score</th>
+                                <th>Comments</th>
+                            </tr>
+
+                            {% if badge_awards %}
+
+                                {% for info in badge_awards %}
+                                    <tr>
+                                        <td>{{ info.badgeId.description }}</td>
+                                        <td>{{ info.dateAwarded }}</td>
+                                        <td>{{ info.score }}</td>
+                                        <td>{{ info.comments }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </table>
+                            {% endif %}</div>
+                </div>
+            </div>
+
+
 
 
 
@@ -28,7 +60,6 @@
                     {% for badge in bronzebadges %}
 
                         <img src={% static badge.iconUrl %} height="150"%>
-
                     {% endfor %}
                 </li>
                 <div class="progress">
