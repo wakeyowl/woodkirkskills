@@ -3,7 +3,7 @@ from member.models import BadgeAwards, Badges, BadgeMedia, CoachInstuction, Badg
 
 
 class BadgeAwardAdmin(admin.ModelAdmin):
-    list_display = ('userId_id', 'badgeId_id', 'dateAwarded', 'score','comments')
+    list_display = ('userId_id', 'badgeId_id', 'dateAwarded', 'score', 'comments')
 
 
 class UserMemberAdmin(admin.ModelAdmin):
