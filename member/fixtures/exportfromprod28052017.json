@@ -1,5 +1,13 @@
 [
   {
+    "model": "member.teammanagers",
+    "pk": 1,
+    "fields": {
+      "full_name": "Iain Macdonald",
+      "team": "U9 Boys"
+    }
+  },
+  {
     "model": "member.badges",
     "pk": 1,
     "fields": {
@@ -116,7 +124,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/goalscorer-merit.png",
-      "description": "Master the Art of goalscoring!"
+      "description": "Goalscorer"
     }
   },
   {
@@ -200,7 +208,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/cryuffturns-merit.png",
-      "description": "Master the Cryuff Turn!"
+      "description": "Cryuff Turn"
     }
   },
   {
@@ -212,7 +220,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/dragbackturns-merit.png",
-      "description": "Master the Dragback Turn!"
+      "description": "Dragback Turn"
     }
   },
   {
@@ -224,7 +232,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/hookturns-merit.png",
-      "description": "Master the Hook Turn!"
+      "description": "Hook Turn"
     }
   },
   {
@@ -236,7 +244,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/ronaldochop-merit.png",
-      "description": "Master the Ronaldo Chop Turn!"
+      "description": "Ronaldo Chop Turn"
     }
   },
   {
@@ -248,7 +256,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/stepoverturns-merit.png",
-      "description": "Master the Stepover Turn!"
+      "description": "Stepover Turn"
     }
   },
   {
@@ -260,7 +268,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/zidaneturns-merit.png",
-      "description": "Master the Zidane Turn!"
+      "description": "Zidane Turn"
     }
   },
   {
@@ -416,7 +424,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/leadership-merit.png",
-      "description": "Leadership Challenge"
+      "description": "Leadership"
     }
   },
   {
@@ -428,7 +436,7 @@
       "levels": "M",
       "pageUrl": "/member/skillsmatrix/challengebadges/",
       "iconUrl": "/images/badges/teamwork-merit.png",
-      "description": "Teamwork Challenge"
+      "description": "Teamwork"
     }
   },
   {
@@ -708,7 +716,7 @@
     "pk": 36,
     "fields": {
       "badgeId": 14,
-      "description": "30 Toe Taps (L/R) under 60 seconds"
+      "description": "40 Toe Taps (L/R) under 60 seconds"
     }
   },
   {
@@ -877,6 +885,14 @@
     "fields": {
       "badgeId": 22,
       "description": "Complete the turn in a game"
+    }
+  },
+  {
+    "model": "member.badgeassesments",
+    "pk": 64,
+    "fields": {
+      "badgeId": 14,
+      "description": "60 - L/R Side Taps under 60 seconds"
     }
   },
   {
@@ -1207,6 +1223,24 @@
       "pageUrl": "pdf/leadership-warmup-drills.pdf",
       "description": "Leadership Warm up Drills",
       "mediaType": "PDF"
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 1,
+    "fields": {
+      "badgeName": "kickups",
+      "tipType": "I",
+      "description": "Kickups gives you a good first touch"
+    }
+  },
+  {
+    "model": "member.coachinstuction",
+    "pk": 2,
+    "fields": {
+      "badgeName": "kickups",
+      "tipType": "T",
+      "description": "Start throw and catch"
     }
   },
   {
@@ -1612,6 +1646,590 @@
       "badgeName": "passing",
       "tipType": "I",
       "description": "Inside, Outside, Heel and Laces are all options for passing"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$3dFsVO8h5ywN$A1G65rzxrRyDvvv7wA21m1KzbE2GO0vbHZJsgRq83es=",
+      "last_login": "2017-05-16T11:12:03.987Z",
+      "is_superuser": true,
+      "username": "imacdonald",
+      "first_name": "",
+      "last_name": "",
+      "email": "iain.macdonald@williamhill.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2017-04-24T23:02:17Z",
+      "groups": [],
+      "user_permissions": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        12,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13,
+        14,
+        15,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        25,
+        26,
+        27,
+        37,
+        38,
+        39,
+        22,
+        23,
+        24,
+        19,
+        20,
+        21,
+        40,
+        41,
+        42,
+        16,
+        17,
+        18
+      ]
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$ZQZITrwSe2t7$QbXSIy2eleR+zv1FkhHQ4ilfk44wc/7sazxfeFRTqHk=",
+      "last_login": "2017-05-27T22:03:44Z",
+      "is_superuser": false,
+      "username": "cmacdonald",
+      "first_name": "",
+      "last_name": "",
+      "email": "cameronjamesmacdonald@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-04-24T23:08:11Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$D1caGRj1D13b$vmVYB4+SCCkIczKW2IqmSlzFdiGsLOooY9lFRdWGpgQ=",
+      "last_login": "2017-04-24T23:16:24.362Z",
+      "is_superuser": true,
+      "username": "administrator",
+      "first_name": "",
+      "last_name": "",
+      "email": "iain.macdonald@williamhill.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2017-04-24T23:16:07.604Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$kqt6TCSGIFiQ$M9TWCQwL3Jw/cmNaqLmgnH5awp6UfYMMKGbB+B5IYd8=",
+      "last_login": "2017-04-25T05:13:54.431Z",
+      "is_superuser": false,
+      "username": "zrobbins",
+      "first_name": "",
+      "last_name": "",
+      "email": "darren.robbins@yahoo.co.uk",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-04-25T05:13:53.984Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$6Umd1BcsSrFe$cUsZVRV+taIQXXOopputhadqQ2m1jUkPaW8wmL1KYF0=",
+      "last_login": "2017-04-25T05:22:42.045Z",
+      "is_superuser": false,
+      "username": "estokes",
+      "first_name": "",
+      "last_name": "",
+      "email": "gareth.stokes@02.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-04-25T05:22:41.654Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$lbwIhVJiKR4t$rbmkg0sHWQzCoKAI1oHrNaQFOxTtaAoqgFfyrKGjAwg=",
+      "last_login": "2017-05-19T19:28:17.224Z",
+      "is_superuser": false,
+      "username": "scurran",
+      "first_name": "",
+      "last_name": "",
+      "email": "paul.curran3@sky.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-04-25T05:31:51.421Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$9sl5rYdaUUYW$uhyF5hUgm1UDd34T1Z4ymvvyctdh1m9oLCttG6x0SVk=",
+      "last_login": "2017-04-26T07:08:52.155Z",
+      "is_superuser": false,
+      "username": "ukola",
+      "first_name": "Umair",
+      "last_name": "Kola",
+      "email": "k7ola@yahoo.co.uk",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-04-26T07:03:39Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$uvvCNVY9fcW0$O5DbS+YufD+AWJBr/pcEMn1nW+Q3POLUDDeLmrxEmoY=",
+      "last_login": "2017-05-14T18:40:53.216Z",
+      "is_superuser": false,
+      "username": "Abarraclough",
+      "first_name": "",
+      "last_name": "",
+      "email": "Melbarraclough1@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-06T18:23:02.188Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$TSwMyfD7ownt$1mjmWW/ycs8tvigsbnGZoRJWnTsWsJPHbQ3boPzVgV4=",
+      "last_login": "2017-05-09T06:24:31.477Z",
+      "is_superuser": false,
+      "username": "ehildon",
+      "first_name": "",
+      "last_name": "",
+      "email": "jacqui_cotton@yahoo.co.uk",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-08T19:12:23.705Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$gbef3UI25byj$D3ab5EpmFgV0jvmCobOcjvdUJce3KwvD4InOlKjIjlU=",
+      "last_login": "2017-05-10T20:15:35.085Z",
+      "is_superuser": false,
+      "username": "sboodhoo",
+      "first_name": "",
+      "last_name": "",
+      "email": "soniaboodhoo@live.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-10T20:15:34.289Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 14,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$6QS7Fhc5Wris$mYEwfkFB8jctHM6CAdTs8N3wmyxWfL3lwMTkY0jdgIA=",
+      "last_login": "2017-05-15T16:58:11.902Z",
+      "is_superuser": false,
+      "username": "Zacjones",
+      "first_name": "",
+      "last_name": "",
+      "email": "gemma_jones2@sky.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-15T16:58:11.356Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 15,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$Pk0bxzYN54Gh$FnhbJrytUUuNxPcG//g21ggBGx1Z/a+1OnUnH49vZb8=",
+      "last_login": "2017-05-19T20:48:10.332Z",
+      "is_superuser": false,
+      "username": "OBooth",
+      "first_name": "",
+      "last_name": "",
+      "email": "jskitt@sky.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-17T20:46:38.835Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 16,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$LXs61osJbpsm$Mwyvsk+QcOfm2WQIjSvKeya1Cv0RR0DIqWWFTCsptLY=",
+      "last_login": "2017-05-23T18:52:15.068Z",
+      "is_superuser": false,
+      "username": "Thomas_09_Lomax",
+      "first_name": "",
+      "last_name": "",
+      "email": "andrew.lomax@hotmail.co.uk",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-23T18:50:38.104Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 17,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$IBwLqTsS3WFX$r62dC47OiUfBgwsekwPM1GV3cR2lLyI2RguRQtGSV2Q=",
+      "last_login": "2017-05-27T06:53:28.555Z",
+      "is_superuser": false,
+      "username": "Foster.E.1109",
+      "first_name": "",
+      "last_name": "",
+      "email": "foster.l5@sky.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-27T06:53:28.200Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$SWd3STbATWxT$PyvIlv2sSx2/TtZsMzvE88r540uRcxd8V+oXw3iufxw=",
+      "last_login": "2017-05-27T22:32:01.801Z",
+      "is_superuser": false,
+      "username": "Ruthnben",
+      "first_name": "",
+      "last_name": "",
+      "email": "ruthnben@sky.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-27T06:56:47.755Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 19,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$8PrwxzKylvzL$YFpRASszJNIWO38l0ZNyJjNaB0y+BCcYXbt6tbLlD7s=",
+      "last_login": "2017-05-27T07:02:18.737Z",
+      "is_superuser": false,
+      "username": "Gstokes82",
+      "first_name": "",
+      "last_name": "",
+      "email": "gareth.stokes@o2.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-27T07:02:18.168Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 20,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$CcgS36fbWRoV$r1n55OneVkSRq2fQbPcBgVwrgaciRPqCdQ7kwLwn8ec=",
+      "last_login": "2017-05-28T07:16:34.583Z",
+      "is_superuser": true,
+      "username": "super",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2017-05-27T16:22:45.744Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 21,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$Ku1DIFj8jGza$OfpSKgGCLBjdo0iCEEXHEIq97bX3OXoNvxdKUu1tadc=",
+      "last_login": "2017-05-27T22:39:05.579Z",
+      "is_superuser": false,
+      "username": "Tylerwynn",
+      "first_name": "",
+      "last_name": "",
+      "email": "ultimatecollectsbles@hotmail.co.uk",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2017-05-27T22:39:05.156Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 1,
+    "fields": {
+      "user": 5,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Zach Robbins",
+      "favourite_player": "Messi",
+      "favourite_team": "Leeds United",
+      "birthdate": "2009-01-04",
+      "slug": "zach-robbins",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 2,
+    "fields": {
+      "user": 6,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Evan Stokes",
+      "favourite_player": "Ronaldo",
+      "favourite_team": "Leeds United",
+      "birthdate": "2009-04-27",
+      "slug": "evan-stokes",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 3,
+    "fields": {
+      "user": 9,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Umair Kola",
+      "favourite_player": "Messi",
+      "favourite_team": "Manchester United",
+      "birthdate": "2017-04-26",
+      "slug": "umair-kola",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 4,
+    "fields": {
+      "user": 10,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Alfie barraclough",
+      "favourite_player": "Pele",
+      "favourite_team": "Real madrid",
+      "birthdate": "2009-05-12",
+      "slug": "alfie-barraclough",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 5,
+    "fields": {
+      "user": 11,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Eddie Hildon",
+      "favourite_player": "Romelu Lukaku",
+      "favourite_team": "Everton",
+      "birthdate": "2009-04-04",
+      "slug": "eddie-hildon",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 6,
+    "fields": {
+      "user": 12,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Sidhish Boodhoo",
+      "favourite_player": "Sergio Ag\u00fcero",
+      "favourite_team": "FC Bayern Munich",
+      "birthdate": "2009-01-20",
+      "slug": "sidhish-boodhoo",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 8,
+    "fields": {
+      "user": 14,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Zac Martyn Jones",
+      "favourite_player": "Harry Kane",
+      "favourite_team": "Leeds",
+      "birthdate": "2009-05-01",
+      "slug": "zac-martyn-jones",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 9,
+    "fields": {
+      "user": 15,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Oscar Booth",
+      "favourite_player": "Adam Lallana",
+      "favourite_team": "Liverpool",
+      "birthdate": "2009-07-08",
+      "slug": "oscar-booth",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 10,
+    "fields": {
+      "user": 17,
+      "managerId": 1,
+      "gender": "F",
+      "full_name": "Ellie Foster",
+      "favourite_player": "Lucy Bronze",
+      "favourite_team": "Manchester City ladies",
+      "birthdate": "2008-09-11",
+      "slug": "ellie-foster",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 11,
+    "fields": {
+      "user": 18,
+      "managerId": 1,
+      "gender": "F",
+      "full_name": "Grace Stott",
+      "favourite_player": "Isahiah brown",
+      "favourite_team": "Huddersfield town",
+      "birthdate": "2009-03-31",
+      "slug": "grace-stott",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.usermember",
+    "pk": 12,
+    "fields": {
+      "user": 3,
+      "managerId": 1,
+      "gender": "M",
+      "full_name": "Cameron Madonald",
+      "favourite_player": "Chris Wood",
+      "favourite_team": "Leeds United",
+      "birthdate": "2009-07-08",
+      "slug": "cameron-madonald",
+      "consent": true
+    }
+  },
+  {
+    "model": "member.badgeawards",
+    "pk": 11,
+    "fields": {
+      "userId": 3,
+      "badgeId": 14,
+      "dateAwarded": "2017-05-27",
+      "score": "120.00",
+      "comments": "Completed in Training"
+    }
+  },
+  {
+    "model": "member.badgeawards",
+    "pk": 12,
+    "fields": {
+      "userId": 7,
+      "badgeId": 14,
+      "dateAwarded": "2017-05-27",
+      "score": "45.00",
+      "comments": "Completed in Training"
+    }
+  },
+  {
+    "model": "member.badgeawards",
+    "pk": 13,
+    "fields": {
+      "userId": 17,
+      "badgeId": 14,
+      "dateAwarded": "2017-05-27",
+      "score": "120.00",
+      "comments": "Completed in Training - Side Taps"
+    }
+  },
+  {
+    "model": "member.badgeawards",
+    "pk": 14,
+    "fields": {
+      "userId": 19,
+      "badgeId": 14,
+      "dateAwarded": "2017-05-27",
+      "score": "140.00",
+      "comments": "Completed in Training - Side Taps"
+    }
+  },
+  {
+    "model": "member.badgeawards",
+    "pk": 15,
+    "fields": {
+      "userId": 21,
+      "badgeId": 14,
+      "dateAwarded": "2017-05-27",
+      "score": "35.00",
+      "comments": "Awarded in Training"
     }
   }
 ]
