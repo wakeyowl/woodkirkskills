@@ -142,8 +142,9 @@ def get_badge_dictionaries_levels(request, current_user_only):
     # get the current user and filter the query
     # inner join the badges -> badgeawards
     # filter only the current users badges
+    current_user = request.user.pk
     if current_user_only:
-        current_user = request.user.pk
+
         q = Badges.objects.exclude(badgeawards__userId__badgeawards__isnull=True)
         q3 = q.filter(badgeawards__userId=current_user)
 
