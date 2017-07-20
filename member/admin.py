@@ -4,8 +4,8 @@ from member.models import BadgeAwards, Badges, BadgeMedia, CoachInstuction, Badg
 
 @admin.register(BadgeAwards)
 class BadgeAwardAdmin(admin.ModelAdmin):
-    list_display = ('userId_id', 'badgeId_id', 'dateAwarded', 'score', 'comments')
-
+    list_display = ('userId_id', 'badgeId_id', 'dateAwarded', 'score', 'comments', 'managerId_id')
+    list_filter = ('badgeId_id', 'managerId_id', )
 pass
 
 

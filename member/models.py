@@ -108,6 +108,8 @@ class BadgeAwards(models.Model):
     dateAwarded = models.DateField()
     score = models.DecimalField(max_digits=5, decimal_places=2)
     comments = models.CharField(max_length=250)
+    managerId = models.ForeignKey(TeamManagers, on_delete=models.CASCADE)
+
 
     class Meta:
         unique_together = ('badgeId', 'userId',)
