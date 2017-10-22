@@ -5,6 +5,7 @@ from member import views
 urlpatterns = [
     # Basepage URL
     url(r'^$', views.skills_matrix, name='skillsmatrix'),
+    url(r'^password/$', views.change_password, name='change_password'),
     # Skill Sections Urls
     url(r'^skillsmatrix/technical/firsttouch/$', views.get_skill_page_by_uri, name='skillpages'),
     url(r'^skillsmatrix/technical/goalkeeper/$', views.get_skill_page_by_uri, name='skillpages'),

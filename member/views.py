@@ -1,4 +1,7 @@
 from datetime import datetime
+
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from os.path import normpath, basename
 
 from django.contrib.auth.decorators import login_required
@@ -7,6 +10,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views.generic import ListView
 from registration.backends.simple.views import RegistrationView
+from django.contrib import messages
 
 from member.forms import UserMemberForm
 from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction, BadgeAwards
@@ -102,6 +106,23 @@ def allbadges(request):
     context_dict = get_badge_dictionaries_levels(request, False)
     response = render(request, 'member/allbadges.html', context=context_dict)
     return response
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('profile', )
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'registration/change_password.html', {
+        'form': form
+    })
 
 
 def get_badge_dictionaries_by_name(request, current_user_only):
