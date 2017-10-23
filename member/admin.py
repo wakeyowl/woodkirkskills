@@ -1,12 +1,14 @@
 from django.contrib import admin
 
-from member.models import BadgeAwards, Badges, BadgeMedia, CoachInstuction, BadgeAssesments, UserMember, TeamManagers, User
+from member.models import BadgeAwards, Badges, BadgeMedia, CoachInstuction, BadgeAssesments, UserMember, TeamManagers, \
+    User
 
 admin.site.unregister(User)
 
 
 def change_password(modeladmin, request, queryset):
     queryset.update(password="pbkdf2_sha256$30000$tmJztDx7lgtg$CrOItg+7R2H2y+9VjZX9yY5xbP9zw8oGAxxC7Pn704w=")
+
 
 change_password.short_description = "Set Temporary Password"
 
@@ -26,6 +28,8 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ('date_joined',)
     search_fields = ('first_name', 'email', 'username')
     actions = [change_password, ]
+    ordering = ('username',)
+
 
 pass
 
@@ -33,6 +37,7 @@ pass
 @admin.register(UserMember)
 class UserMemberAdmin(admin.ModelAdmin):
     list_display = ('user', 'full_name', 'favourite_player', 'favourite_team', 'managerId_id')
+
 
 pass
 
@@ -55,7 +60,8 @@ pass
 
 @admin.register(Badges)
 class BadgesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'levels')
+    list_display = ('description', 'name', 'category', 'levels',)
+    list_filter = ('levels', 'category', 'name',)
 
 
 pass
@@ -73,6 +79,7 @@ pass
 @admin.register(BadgeMedia)
 class BadgeMediaAdmin(admin.ModelAdmin):
     list_display = ('badgeId', 'pageUrl', 'description', 'mediaType')
+    ordering = ('badgeId',)
 
 
 pass

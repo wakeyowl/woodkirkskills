@@ -10,6 +10,9 @@ class TeamManagers(models.Model):
     def __str__(self):
         return self.full_name
 
+    class Meta:
+        verbose_name_plural = "Team Managers"
+
 
 class UserMember(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -84,6 +87,7 @@ class Badges(models.Model):
 
     class Meta:
         verbose_name_plural = "Badges"
+        ordering = ['name']
 
     def __str__(self):
         return self.name + " " + self.get_levels_display()
@@ -96,6 +100,7 @@ class BadgeAssesments(models.Model):
 
     class Meta:
         verbose_name_plural = "Badge Assessments"
+        ordering = ['badgeId']
 
     def __str__(self):
         return self.description
@@ -114,6 +119,7 @@ class BadgeAwards(models.Model):
     class Meta:
         unique_together = ('badgeId', 'userId',)
         verbose_name_plural = "Badge Awards"
+        ordering = ['userId']
 
     def calculateVotes(self):
         return BadgeAwards.objects.filter(choice=self).count()
@@ -135,6 +141,7 @@ class BadgeMedia(models.Model):
 
     class Meta:
         verbose_name_plural = "Badge Media"
+        ordering = ['badgeId']
 
     def __str__(self):
         return self.description
