@@ -57,10 +57,12 @@ table.blueTable {
     width: 100%;
     text-align: center;
 
+
 }
 
 table.blueTable td, table.blueTable th {
     border-radius: 25px;
+    padding: 5px;
 }
 
 table.blueTable tbody td {
