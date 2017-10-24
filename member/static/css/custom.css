@@ -19,11 +19,72 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 }
 
-.navbar-header{
-  width:100%;
-  padding:0 50px;
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: rgba(218, 153, 70, 0.2);
 }
 
-.btn-right{
-    float:right;
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: rgba(218, 153, 70, 0.2);
+}
+
+.bg-inverse {
+    background-color: darkorange !important;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar-header {
+    width: 100%;
+    padding: 0 50px;
+}
+
+.btn-right {
+    float: right;
+}
+
+table.blueTable {
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: center;
+
+
+}
+
+table.blueTable td, table.blueTable th {
+    border-radius: 25px;
+    padding: 5px;
+}
+
+table.blueTable tbody td {
+
+}
+
+table.blueTable tr:nth-child(even) {
+
+}
+
+table.blueTable tfoot td {
+
+}
+
+table.blueTable tfoot .links {
+    text-align: right;
+}
+
+table.blueTable tfoot .links a {
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
 }

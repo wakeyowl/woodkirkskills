@@ -30,7 +30,6 @@ class UserAdmin(admin.ModelAdmin):
     actions = [change_password, ]
     ordering = ('username',)
 
-
 pass
 
 
@@ -45,6 +44,7 @@ pass
 @admin.register(BadgeAssesments)
 class BadgeAssessmentsAdmin(admin.ModelAdmin):
     list_display = ('badgeId', 'description')
+
 
 
 pass
