@@ -61,7 +61,7 @@ table.blueTable {
 }
 
 table.blueTable td, table.blueTable th {
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 5px;
 }
 
