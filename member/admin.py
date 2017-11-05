@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from member.models import BadgeAwards, Badges, BadgeMedia, CoachInstuction, BadgeAssesments, UserMember, TeamManagers, \
-    User
+    User, PlayerMatchAwards
 
 admin.site.unregister(User)
 
@@ -81,5 +81,12 @@ class BadgeMediaAdmin(admin.ModelAdmin):
     list_display = ('badgeId', 'pageUrl', 'description', 'mediaType')
     ordering = ('badgeId',)
 
+
+pass
+
+
+@admin.register(PlayerMatchAwards)
+class PlayerMatchAwardsAdmin(admin.ModelAdmin):
+    list_display = ('dateAwarded', 'userId', 'awardType', 'score', 'comments')
 
 pass

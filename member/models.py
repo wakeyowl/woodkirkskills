@@ -41,6 +41,10 @@ class UserMember(models.Model):
     def __str__(self):
         return '{0}'.format(self.user)
 
+    # Hack update to Players in Admin Pages as a workaround - TODO: Update DB Names properly
+    class Meta:
+        verbose_name_plural = "Players"
+
 
 class Contact(models.Model):
 
@@ -123,6 +127,26 @@ class BadgeAwards(models.Model):
 
     def calculateVotes(self):
         return BadgeAwards.objects.filter(choice=self).count()
+
+
+class PlayerMatchAwards(models.Model):
+
+    userId = models.ForeignKey(User, on_delete=models.CASCADE)
+    POTM = 'POTM'
+    GOALS = 'GOAL'
+    CLEANSHEET = 'CLEANSHEET'
+    AWARD_TYPES = (
+        (POTM, 'Player of the Match'),
+        (GOALS, 'Goals Scored'),
+        (CLEANSHEET, 'Clean Sheet'),
+    )
+    awardType = models.CharField(max_length=255, choices=AWARD_TYPES)
+    dateAwarded = models.DateField()
+    score = models.DecimalField(max_digits=5, decimal_places=0, default=1)
+    comments = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name_plural = "Player Match Awards"
 
 
 class BadgeMedia(models.Model):
