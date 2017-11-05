@@ -87,6 +87,6 @@ pass
 
 @admin.register(PlayerMatchAwards)
 class PlayerMatchAwardsAdmin(admin.ModelAdmin):
-    list_display = ('dateAwarded', 'userId', 'awardType', 'score', 'comments')
+    list_display = ('userId', 'dateAwarded', 'awardType', 'score', 'comments')
 
 pass
