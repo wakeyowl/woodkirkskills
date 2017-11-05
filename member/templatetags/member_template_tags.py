@@ -22,3 +22,8 @@ def getCategoryCompletion(list, key):
     if list and isinstance(list, dict):
         value = list[key].get('player_completion_percent')
         return value
+
+
+@register.filter(name='lookup')
+def get_item(dictionary, key):
+    return dictionary.get(key)

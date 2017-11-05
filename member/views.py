@@ -13,7 +13,8 @@ from registration.backends.simple.views import RegistrationView
 from django.contrib import messages
 
 from member.forms import UserMemberForm
-from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction, BadgeAwards
+from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction, BadgeAwards, \
+    PlayerMatchAwards
 
 
 class WoodkirkRegistrationView(RegistrationView):
@@ -168,6 +169,21 @@ def get_badge_dictionaries_levels(request, current_user_only):
 
         q = Badges.objects.exclude(badgeawards__userId__badgeawards__isnull=True)
         q3 = q.filter(badgeawards__userId=current_user)
+        # Get the PlayerMatchAwards
+        matchAwards = PlayerMatchAwards.objects.all()
+        matchAwards = matchAwards.filter(userId_id=current_user)
+        player_awards = {
+            'goals': 0,
+            'potm': 0,
+            'clean_sheets': 0
+        }
+        for award in matchAwards:
+            if (award.awardType == 'POTM'):
+                player_awards['potm'] += award.score
+            elif (award.awardType == 'GOALS'):
+                player_awards['goals'] += award.score
+            elif (award.awardType == 'CLEANSHEET'):
+                player_awards['clean_sheets'] += award.score
 
     else:
         q3 = Badges.objects.all()
@@ -218,10 +234,14 @@ def get_badge_dictionaries_levels(request, current_user_only):
 
     # Get Percentages
     badgedata = get_percentages_of_categories(request)
+
+
+
+
     # chuck it all in some context dictionaries for the render object
     context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
                     'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls, 'playerrating': player_rating,
-                    'users': q, 'badgedata': badgedata, 'badge_awards': badge_awards_list}
+                    'users': q, 'badgedata': badgedata, 'badge_awards': badge_awards_list, 'player_awards': player_awards}
     return context_dict
 
 

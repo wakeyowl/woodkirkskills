@@ -142,7 +142,7 @@ class PlayerMatchAwards(models.Model):
     )
     awardType = models.CharField(max_length=255, choices=AWARD_TYPES)
     dateAwarded = models.DateField()
-    score = models.DecimalField(max_digits=5, decimal_places=0, default=1)
+    score = models.IntegerField(default=1)
     comments = models.CharField(max_length=250)
 
     class Meta:
