@@ -132,13 +132,13 @@ class BadgeAwards(models.Model):
 class PlayerMatchAwards(models.Model):
 
     userId = models.ForeignKey(User, on_delete=models.CASCADE)
-    POTM = 'POTM'
-    GOALS = 'GOAL'
-    CLEANSHEET = 'CLEANSHEET'
+    POTMS = 'POTMS'
+    GOALS = 'GOALS'
+    CLEANSHEETS = 'CLEANSHEETS'
     AWARD_TYPES = (
-        (POTM, 'Player of the Match'),
+        (POTMS, 'Player of the Match'),
         (GOALS, 'Goals Scored'),
-        (CLEANSHEET, 'Clean Sheet'),
+        (CLEANSHEETS, 'Clean Sheet'),
     )
     awardType = models.CharField(max_length=255, choices=AWARD_TYPES)
     dateAwarded = models.DateField()

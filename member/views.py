@@ -178,11 +178,11 @@ def get_badge_dictionaries_levels(request, current_user_only):
             'clean_sheets': 0
         }
         for award in matchAwards:
-            if (award.awardType == 'POTM'):
+            if (award.awardType == 'POTMS'):
                 player_awards['potm'] += award.score
             elif (award.awardType == 'GOALS'):
                 player_awards['goals'] += award.score
-            elif (award.awardType == 'CLEANSHEET'):
+            elif (award.awardType == 'CLEANSHEETS'):
                 player_awards['clean_sheets'] += award.score
 
     else:
