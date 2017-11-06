@@ -16,3 +16,9 @@ class UserMemberForm(forms.ModelForm):
     class Meta:
         model = UserMember
         fields = ('full_name', 'favourite_player', 'favourite_team', 'birthdate', 'consent', 'gender', 'managerId')
+
+
+class UserMemberUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserMember
+        fields = ('full_name', 'picture', 'squad_number','favourite_player', 'favourite_team', 'birthdate', )

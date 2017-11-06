@@ -1,6 +1,12 @@
+from io import BytesIO
+
+from PIL import Image
 from django.contrib.auth.models import User
+from django.core.files.base import ContentFile
 from django.db import models
 from django.template.defaultfilters import slugify
+from resizeimage import resizeimage
+from django.utils.encoding import python_2_unicode_compatible
 
 
 class TeamManagers(models.Model):
@@ -14,6 +20,7 @@ class TeamManagers(models.Model):
         verbose_name_plural = "Team Managers"
 
 
+@python_2_unicode_compatible
 class UserMember(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     managerId = models.ForeignKey(TeamManagers, on_delete=models.CASCADE)
@@ -28,14 +35,53 @@ class UserMember(models.Model):
     favourite_player = models.CharField(max_length=128, null=True)
     favourite_team = models.CharField(max_length=128, null=True)
     birthdate = models.DateField()
+    squad_number = models.IntegerField()
+    picture = models.ImageField(upload_to='profile_images/', blank=True)
     slug = models.SlugField(unique=True)
     CONSENT_CHOICES = ((True, 'Yes'), (False, 'No'))
     consent = models.NullBooleanField(choices=CONSENT_CHOICES,
                                       max_length=3,
                                       blank=True, null=True, default=True )
 
+    # def save(self, *args, **kwargs):
+    #     self.slug = slugify(self.full_name)
+    #     super(UserMember, self).save(*args, **kwargs)
+    def __str__(self):
+        return self.full_name
+
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.full_name)
+        # self.slug = slugify(self.full_name)
+        try:
+            pil_image_obj = Image.open(self.picture)
+            new_image = resizeimage.resize_width(pil_image_obj, 150)
+
+            new_image_io = BytesIO()
+            new_image.save(new_image_io, format='JPEG')
+
+            # Get MetaData for the Save
+            orig_picture_name = self.full_name
+            orig_picture_name = orig_picture_name.replace(" ", "_")
+            team = self.managerId.full_name
+            team = team.replace(" ", "_")
+
+            temp_name = '' + team + '_' + orig_picture_name + '.jpg'
+            self.picture.delete(save=False)
+
+            self.picture.save(
+                temp_name,
+                content=ContentFile(new_image_io.getvalue()),
+                save=False
+            )
+        except:
+            #temp_name = None
+            # Handle Null Setting of Image (Clear Route)
+            super(UserMember, self).save()
+        # if temp_name is None:
+        #     super(Player, self).save()
+        #     #super(Player, self).clean(*args, **kwargs)
+        # else:
+
+        # If Not save the in memory image to disk ans set it to db
         super(UserMember, self).save(*args, **kwargs)
 
     def __str__(self):

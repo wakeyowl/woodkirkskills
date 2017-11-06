@@ -30,5 +30,6 @@ urlpatterns = [
     # Registration URLs
     url(r'^add_member/$', views.add_member, name='add_member'),
     url(r'^register_profile/$', views.register_profile, name='register_profile'),
+    url(r'^update/$', views.update_user, name='update_user'),
 
 ]

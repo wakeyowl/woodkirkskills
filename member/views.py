@@ -6,13 +6,13 @@ from os.path import normpath, basename
 
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.shortcuts import render
 from django.views.generic import ListView
 from registration.backends.simple.views import RegistrationView
 from django.contrib import messages
 
-from member.forms import UserMemberForm
+from member.forms import UserMemberForm, UserMemberUpdateForm
 from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction, BadgeAwards, \
     PlayerMatchAwards
 
@@ -75,6 +75,21 @@ def register_profile(request):
 def index(request):
     response = render(request, 'member/skillsmatrix.html', {})
     return response
+
+
+def update_user(request):
+    userupdated = get_object_or_404(UserMember, user=request.user.pk)
+    if request.method == "POST":
+        form = UserMemberUpdateForm(request.POST, request.FILES, instance=userupdated)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user_id = request.user
+            post.save()
+            return redirect('mybadges', )
+    else:
+        form = UserMemberUpdateForm(instance=userupdated)
+
+    return render(request, 'member/usermember_update_form.html', {'form': form})
 
 
 def challengebadges(request):
