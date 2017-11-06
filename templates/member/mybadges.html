@@ -21,7 +21,8 @@
                     </br>
                 </div>
                 <div class="col-sm-9">
-                    <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#history">Badge History
+                    <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#history">Badge
+                        History
                     </button>
                     <div id="history" class="collapse">
                         <table style="width:100%">
@@ -51,15 +52,38 @@
             </br>
 
             <div>
-               <h4>Season Statistics</h4>
+                <h4>Season Statistics <span class="fa fa-line-chart" aria-hidden="true" style="font-size: 30px;"></span>
+                </h4>
                 {% if player_awards %}
 
-                <div class="list-group">
-                    </br>
-                    <li class="list-group-item"><span class="fa fa-certificate text-warning" aria-hidden="true" style="font-size: 50px;"> </span> Match of The Match Awards: <strong>{{ player_awards|lookup:'potm'}}</strong></li>
-                    <li class="list-group-item"><span class="fa fa-hand-paper-o text-warning" aria-hidden="true" style="font-size: 50px;"></span> Clean Sheets: <strong>{{ player_awards|lookup:'clean_sheets'}}</strong></li>
-                    <li class="list-group-item"><span class="fa fa-futbol-o text-warning" aria-hidden="true" style="font-size: 50px;"></span> Goals: <strong>{{ player_awards|lookup:'goals'}}</strong></li>
-                </div>
+                    <div class="list-group">
+                        </br>
+                        {# POTM Awards #}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-8"> <span class="fa fa-certificate text-warning" aria-hidden="true"
+                                                            style="font-size: 40px; vertical-align: bottom;"></span>  Player of The Match Awards</div>
+                                <div class="col-sm-4"><h3 style="text-align: left;">{{ player_awards|lookup:'potm' }}</h3></div>
+                            </div>
+                        </li>
+                        {# Clean Sheets #}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-8"> <span class="fa fa-shield text-warning" aria-hidden="true"
+                                                            style="font-size: 40px; vertical-align: bottom;"></span>  Clean Sheets</div>
+                                <div class="col-sm-4"><h3 style="text-align: left;">{{ player_awards|lookup:'clean_sheets' }}</h3></div>
+                            </div>
+                        </li>
+                       {# Goals #}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-8"> <span class="fa fa-futbol-o text-warning" aria-hidden="true"
+                                                            style="font-size: 35px; vertical-align: bottom;"></span>  Goals</div>
+                                <div class="col-sm-4"><h3 style="text-align: left;">{{ player_awards|lookup:'goals' }}</h3></div>
+                            </div>
+                        </li>
+
+                    </div>
                 {% endif %}
             </div>
 
