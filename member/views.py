@@ -236,6 +236,10 @@ def get_badge_dictionaries_levels(request, current_user_only):
     # Get a list of User
     q = UserMember.objects.all()
 
+
+    curr_user = UserMember.objects.all()
+    curr_user = curr_user.filter(user_id=current_user)
+
     # Get Lists of all urls for each section
     merit_badge_urls = q3.filter(levels='M')
     bronze_badge_urls = q3.filter(levels='B')
@@ -256,7 +260,7 @@ def get_badge_dictionaries_levels(request, current_user_only):
     # chuck it all in some context dictionaries for the render object
     context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
                     'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls, 'playerrating': player_rating,
-                    'users': q, 'badgedata': badgedata, 'badge_awards': badge_awards_list, 'player_awards': player_awards}
+                    'users': q, 'badgedata': badgedata, 'badge_awards': badge_awards_list, 'player_awards': player_awards, 'current_user': curr_user}
     return context_dict
 
 

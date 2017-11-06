@@ -12,14 +12,27 @@
         <div class="page-header">
 
             <div class="row">
-                <div class="col-sm-3"><h2>My Badges</h2>
-                    <h3><span class="fa fa-user-circle" aria-hidden="true"></span> {{ user.username }}</h3>
-                    <h4><i>{{ playerrating }} <span style="text-shadow: 2px 2px 4px #000; color: yellow;"
-                                                    class="fa fa-star"
-                                                    aria-hidden="true"></span>
-                        - Badge Points </i></h4>
+
+                <div class="col-sm-3">
+                    {% if current_user %}
+                        {% for user in current_user %}
+                            <h2><span class="fa fa-user-circle" aria-hidden="true"></span> {{ user.full_name }}</h2>
+                            <h3><i>{{ playerrating }} <span style="text-shadow: 2px 2px 4px #000; color: yellow;"
+                                                            class="fa fa-star"
+                                                            aria-hidden="true"></span>
+                                - Badge Points </i></h3>
+                            <br/>
+                            <img class="img-circle center-block" src="/member/media/{{ user.picture }}"
+                                 width="125"
+                                 height="125" style="float: left"
+                                 alt="{{ user.full_name }}"/>
+
+                        {% endfor %}
+                    {% endif %}
+
                     </br>
                 </div>
+
                 <div class="col-sm-9">
                     <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#history">Badge
                         History
