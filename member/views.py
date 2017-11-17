@@ -21,6 +21,8 @@ class WoodkirkRegistrationView(RegistrationView):
     def get_success_url(self, user):
         return reverse('register_profile')
 
+player_awards = {}
+
 
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)
@@ -179,6 +181,7 @@ def get_badge_dictionaries_levels(request, current_user_only):
     # get the current user and filter the query
     # inner join the badges -> badgeawards
     # filter only the current users badges
+    global player_awards
     current_user = request.user.pk
     if current_user_only:
 
