@@ -1,0 +1,22 @@
+{% extends "member/base_bootstrap_plain.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title_block %}
+    PLayer Battle Selection
+{% endblock %}
+
+{% block body_block %}
+
+    <h1>Select a Player to View</h1>
+    <div>
+        <div class="form-group">
+            <form role="form" action="." method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <button class="btn btn-primary" input type="submit">Lets Battle</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

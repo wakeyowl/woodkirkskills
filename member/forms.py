@@ -1,7 +1,6 @@
 from django import forms
-from django.views.generic.edit import UpdateView
 from django.utils.safestring import mark_safe
-from member.models import UserMember
+from member.models import UserMember, TeamManagers
 
 
 class UserMemberForm(forms.ModelForm):
@@ -22,3 +21,8 @@ class UserMemberUpdateForm(forms.ModelForm):
     class Meta:
         model = UserMember
         fields = ('full_name', 'picture', 'squad_number','favourite_player', 'favourite_team', 'birthdate', )
+
+
+class PlayerBattleForm(forms.Form):
+
+        player_to_battle = forms.ModelChoiceField(queryset=UserMember.objects.all())

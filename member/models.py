@@ -4,17 +4,17 @@ from PIL import Image
 from django.contrib.auth.models import User
 from django.core.files.base import ContentFile
 from django.db import models
-from django.template.defaultfilters import slugify
 from resizeimage import resizeimage
 from django.utils.encoding import python_2_unicode_compatible
 
 
 class TeamManagers(models.Model):
     full_name = models.CharField(max_length=128, unique=True, null=True)
+    club = models.CharField(max_length=100)
     team = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.full_name
+        return self.club + ' - ' + self.team + '- Manager: ' + self.full_name
 
     class Meta:
         verbose_name_plural = "Team Managers"

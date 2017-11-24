@@ -12,9 +12,9 @@ from django.views.generic import ListView
 from registration.backends.simple.views import RegistrationView
 from django.contrib import messages
 
-from member.forms import UserMemberForm, UserMemberUpdateForm
+from member.forms import UserMemberForm, UserMemberUpdateForm, PlayerBattleForm
 from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction, BadgeAwards, \
-    PlayerMatchAwards
+    PlayerMatchAwards, TeamManagers
 
 
 class WoodkirkRegistrationView(RegistrationView):
@@ -79,7 +79,36 @@ def index(request):
     return response
 
 
-def player_battles(request):
+def player_battles_menu(request, template_name='member/player_battle_form.html'):
+        form = PlayerBattleForm()
+
+        if request.GET.get('featured'):
+            featured_filter = request.GET.get('featured')
+            listings = TeamManagers.objects.filter(featured_choices=featured_filter)
+        else:
+            listings = TeamManagers.objects.all()
+
+        if request.method == 'POST':
+            form = PlayerBattleForm(request.POST)
+
+            if form.is_valid():
+
+                # Grab the user and challenged player for the data filter query
+                current_user = get_object_or_404(UserMember, user=request.user.pk)
+                challenged_player = form.cleaned_data['player_to_battle']
+                return player_battles(request, current_user, challenged_player )
+            else:
+                print(form.errors)
+
+        context_dict = {'listings': listings}
+
+        return render(request, template_name, {'form': form}, context_dict)
+
+
+def player_battles(request, current_user, challenged_player):
+    # TODO: Select the two user profiles data to display on the page
+    current_user
+    challenged_player
     response = render(request, 'member/playerbattles.html', {})
     return response
 
@@ -450,6 +479,8 @@ def add_member(request):
             print(form.errors)
 
     return render(request, 'member/add_member.html', {'form': form})
+
+
 
 
 class ListContactView(ListView):
