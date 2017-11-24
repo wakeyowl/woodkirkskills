@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="{% static "css/playerbattles.css" %}">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Player Battles</title>
+</head>
+
+<body>
+
+
+<div class="wrapper clearfix">
+    <div class="title-box">
+        <img class="img-centre" src="{% static "images/woodkirk-trans.png" %}" alt="wvfc" height="50px">Player Battles
+    </div>
+
+    <div class="player-0-panel">
+        <div class="player-name" id="name-0">Cameron Macdonald</div>
+        <img class="Absolute-Center" src="{% static "images/vs.png" %}" alt="vs" height="75px">
+        <!--                Add in score later ... <div class="player-score" id="score-0">43</div>-->
+        <img class="img-centre" src="{% static "images/cameron-macdonald.png" %}" alt="player-name" height="50%">
+        <ul class="list-group">
+            <li class="list-group-item">Kickups <span class="badge badge">120</span></li>
+            <li class="list-group-item">ToeTaps <span class="badge">54</span></li>
+            <li class="list-group-item">Cryuff Turns <span class="badge">3</span></li>
+            <li class="list-group-item">Dragback Turns <span class="badge">3</span></li>
+            <li class="list-group-item">Stepovers <span class="badge">98</span></li>
+        </ul>
+        <!--
+            <div class="player-current-box">
+                <div class="player-current-label">Current</div>
+                <div class="player-current-score" id="current-0">11</div>
+            </div>
+-->
+    </div>
+
+
+    <div class="player-1-panel">
+        <div class="player-name" id="name-1">Oscar Booth</div>
+
+        <img class="img-centre" src="{% static "images/oscar-booth-nobg.jpg" %}" alt="player-name" height="50%">
+
+        <ul class="list-group">
+            <li class="list-group-item">Kickups <span class="badge">145</span></li>
+            <li class="list-group-item">ToeTaps <span class="badge">76</span></li>
+            <li class="list-group-item">Cryuff Turns <span class="badge">54</span></li>
+            <li class="list-group-item">Dragback Turns <span class="badge">30</span></li>
+            <li class="list-group-item">Stepovers <span class="badge">80</span></li>
+        </ul>
+        <!--               Add in score later <div class="player-score" id="score-1">72</div>-->
+        <!--
+            <div class="player-current-box">
+                <div class="player-current-label">Current</div>
+                <div class="player-current-score" id="current-1">0</div>
+            </div>
+-->
+    </div>
+
+    <!--            <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>-->
+    <!--            <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>-->
+    <!--            <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>-->
+
+    <!--            <img src="dice-5.png" alt="Dice" class="dice">-->
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

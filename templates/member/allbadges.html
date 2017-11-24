@@ -23,7 +23,8 @@
                     {% for badge in bronzebadges %}
 
                         <a href={{ badge.pageUrl }}>
-                            <img src={% static badge.iconUrl %} height="150"%>
+
+                            <img style="filter: hue-rotate(180deg)" src={% static badge.iconUrl %} height="150"%>
                         </a>
 
 

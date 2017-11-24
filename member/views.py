@@ -79,6 +79,11 @@ def index(request):
     return response
 
 
+def player_battles(request):
+    response = render(request, 'member/playerbattles.html', {})
+    return response
+
+
 def update_user(request):
     userupdated = get_object_or_404(UserMember, user=request.user.pk)
     if request.method == "POST":

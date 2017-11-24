@@ -22,6 +22,7 @@ urlpatterns = [
                   url(r'^skillsmatrix/social/teamwork/$', views.get_skill_page_by_uri, name='teamwork'),
                   # Menu URLs
                   url(r'^mybadges/$', views.mybadges, name='mybadges'),
+                  url(r'^playerbattles/$', views.player_battles, name='player_battles'),
                   url(r'^allbadges/$', views.allbadges, name='allbadges'),
                   url(r'^skillsmatrix/$', views.skills_matrix, name='skillsmatrix'),
                   url(r'^skillsmatrix/challengebadges/$', views.challengebadges, name='challengebadges'),
