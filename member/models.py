@@ -133,8 +133,8 @@ class Badges(models.Model):
     label = models.CharField(max_length=50)
     category = models.CharField(max_length=255, choices=BADGE_CATEGORIES)
     levels = models.CharField(max_length=1, choices=BADGE_LEVELS)
-    pageUrl = models.CharField(max_length=200)
-    iconUrl = models.CharField(max_length=200)
+    pageUrl = models.CharField(max_length=200, default='/member/skillsmatrix/')
+    iconUrl = models.CharField(max_length=200, default='/images/badges/')
     description = models.CharField(max_length=200)
 
     class Meta:
