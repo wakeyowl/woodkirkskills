@@ -130,6 +130,7 @@ class Badges(models.Model):
         (SOCIAL, 'Social'),
     )
     name = models.CharField(max_length=128)
+    label = models.CharField(max_length=50)
     category = models.CharField(max_length=255, choices=BADGE_CATEGORIES)
     levels = models.CharField(max_length=1, choices=BADGE_LEVELS)
     pageUrl = models.CharField(max_length=200)
