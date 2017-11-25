@@ -60,8 +60,8 @@ pass
 
 @admin.register(Badges)
 class BadgesAdmin(admin.ModelAdmin):
-    list_display = ('description', 'name', 'category', 'levels',)
-    list_filter = ('levels', 'category', 'name',)
+    list_display = ('description', 'name', 'category', 'levels', 'label', )
+    list_filter = ('levels', 'category', 'name', 'label', )
 
 
 pass
