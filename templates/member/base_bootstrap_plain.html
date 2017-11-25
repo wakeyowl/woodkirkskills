@@ -48,7 +48,7 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
     <div class="container-fluid">
         <a class="navbar-static-top navbar-left" href="{% url 'index' %}">
-            <img src="{% static "images/skills-icon.png" %}" alt="WVFC" width="100px"/>
+{#            <img src="{% static "images/skills-icon.png" %}" alt="WVFC" width="50px"/>#}
         </a>
         <button class="navbar-static-top navbar-toggle navbar-right collapsed" type="button" data-toggle="collapse"
                 data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,9 +59,13 @@
 
 
     <div class="collapse navbar-collapse wrapper" id="navbar">
-        {% if user.is_authenticated %}
-            <ul class="nav navbar-nav navbar">
 
+        {% if user.is_authenticated %}
+
+            <ul class="nav navbar-nav navbar">
+             <li class="nav-item">
+            <img src="{% static "images/skills-icon.png" %}" alt="WVFC" width="50px"/>
+             </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">
                         <span class="fa fa-user-circle" aria-hidden="true"></span> {{ user.username }}
@@ -70,9 +74,9 @@
 
                 <li role="separator" class="divider"></li>
 
-                <li class="products nav-item">
-                    <a class="nav-link" href="{% url 'skillsmatrix' %}">
-                        <span class="fa fa-home" aria-hidden="true"></span> Skills Matrix
+                 <li class="products nav-item">
+                    <a class="nav-link" href="{% url 'select_battle' %}">
+                        <span class="fa fa-home" aria-hidden="true"></span> Player Challange
                     </a>
                 </li>
 
