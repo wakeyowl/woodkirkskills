@@ -62,6 +62,7 @@ pass
 class BadgesAdmin(admin.ModelAdmin):
     list_display = ('description', 'name', 'category', 'levels', 'label', )
     list_filter = ('levels', 'category', 'name', 'label', )
+    search_fields = ('label', 'name', 'category', 'levels', )
 
 
 pass
