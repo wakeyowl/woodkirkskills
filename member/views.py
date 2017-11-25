@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from django.db.models import Max, Min
 from os.path import normpath, basename
 
 from django.contrib.auth.decorators import login_required
@@ -14,7 +15,7 @@ from django.contrib import messages
 
 from member.forms import UserMemberForm, UserMemberUpdateForm, PlayerBattleForm
 from member.models import UserMember, Contact, Badges, BadgeAssesments, BadgeMedia, CoachInstuction, BadgeAwards, \
-    PlayerMatchAwards, TeamManagers
+    PlayerMatchAwards, TeamManagers, User
 
 
 class WoodkirkRegistrationView(RegistrationView):
@@ -94,9 +95,10 @@ def player_battles_menu(request, template_name='member/player_battle_form.html')
             if form.is_valid():
 
                 # Grab the user and challenged player for the data filter query
-                current_user = get_object_or_404(UserMember, user=request.user.pk)
-                challenged_player = form.cleaned_data['player_to_battle']
-                return player_battles(request, current_user, challenged_player )
+                current_user=request.user.pk
+                # current_user2 = get_object_or_404(BadgeAwards, userId_id=request.user.pk)
+                challenged_player = form.cleaned_data['player_to_battle'].user_id
+                return player_battles(request, current_user, challenged_player)
             else:
                 print(form.errors)
 
@@ -105,11 +107,19 @@ def player_battles_menu(request, template_name='member/player_battle_form.html')
         return render(request, template_name, {'form': form}, context_dict)
 
 
-def player_battles(request, current_user, challenged_player):
-    # TODO: Select the two user profiles data to display on the page
-    current_user
-    challenged_player
-    response = render(request, 'member/playerbattles.html', {})
+def player_battles(request, current_user_id, challenged_player_id):
+
+    # Get all badge Awards
+    q = BadgeAwards.objects.all()
+    # query filter just the current users badges
+    qcurrent = q.filter(userId_id=current_user_id)
+    max = qcurrent.aggregate(Max('score'))
+    min = qcurrent.aggregate(Min('score'))
+    # create a seperate query filter for challenges
+    qchallenged = q.filter(userId_id=challenged_player_id)
+
+    context_dict = {'current_player': qcurrent, 'challenged_player': qchallenged}
+    response = render(request, 'member/playerbattles.html', context_dict)
     return response
 
 

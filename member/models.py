@@ -37,6 +37,7 @@ class UserMember(models.Model):
     birthdate = models.DateField()
     squad_number = models.IntegerField()
     picture = models.ImageField(upload_to='profile_images/', blank=True)
+    picture_skill_profile = models.ImageField(blank=True)
     slug = models.SlugField(unique=True)
     CONSENT_CHOICES = ((True, 'Yes'), (False, 'No'))
     consent = models.NullBooleanField(choices=CONSENT_CHOICES,
