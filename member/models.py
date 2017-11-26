@@ -37,7 +37,7 @@ class UserMember(models.Model):
     birthdate = models.DateField()
     squad_number = models.IntegerField()
     picture = models.ImageField(upload_to='profile_images/', blank=True)
-    picture_skill_profile = models.ImageField(blank=True)
+    picture_skill_profile = models.ImageField(upload_to='skills_profile/', blank=True)
     slug = models.SlugField(unique=True)
     CONSENT_CHOICES = ((True, 'Yes'), (False, 'No'))
     consent = models.NullBooleanField(choices=CONSENT_CHOICES,
@@ -54,10 +54,14 @@ class UserMember(models.Model):
         # self.slug = slugify(self.full_name)
         try:
             pil_image_obj = Image.open(self.picture)
+            pil_image_obj_skill_profile = Image.open(self.picture_skill_profile)
+
             new_image = resizeimage.resize_width(pil_image_obj, 150)
+            new_image2 = resizeimage.resize_width(pil_image_obj_skill_profile, 150)
 
             new_image_io = BytesIO()
             new_image.save(new_image_io, format='JPEG')
+            new_image2.save(new_image_io, format='JPEG')
 
             # Get MetaData for the Save
             orig_picture_name = self.full_name
@@ -67,8 +71,14 @@ class UserMember(models.Model):
 
             temp_name = '' + team + '_' + orig_picture_name + '.jpg'
             self.picture.delete(save=False)
+            self.picture_skill_profile.delete(save=False)
 
             self.picture.save(
+                temp_name,
+                content=ContentFile(new_image_io.getvalue()),
+                save=False
+            )
+            self.picture_skill_profile.save(
                 temp_name,
                 content=ContentFile(new_image_io.getvalue()),
                 save=False

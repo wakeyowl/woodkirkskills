@@ -35,7 +35,7 @@ pass
 
 @admin.register(UserMember)
 class UserMemberAdmin(admin.ModelAdmin):
-    list_display = ('user', 'full_name', 'favourite_player', 'favourite_team', 'managerId_id', 'picture')
+    list_display = ('user', 'full_name', 'favourite_player', 'favourite_team', 'managerId_id', 'picture', 'picture_skill_profile')
 
 
 pass
