@@ -22,6 +22,7 @@ class WoodkirkRegistrationView(RegistrationView):
     def get_success_url(self, user):
         return reverse('register_profile')
 
+
 player_awards = {}
 
 
@@ -81,46 +82,91 @@ def index(request):
 
 
 def player_battles_menu(request, template_name='member/player_battle_form.html'):
-        form = PlayerBattleForm()
+    form = PlayerBattleForm()
 
-        if request.GET.get('featured'):
-            featured_filter = request.GET.get('featured')
-            listings = TeamManagers.objects.filter(featured_choices=featured_filter)
+    if request.GET.get('featured'):
+        featured_filter = request.GET.get('featured')
+        listings = TeamManagers.objects.filter(featured_choices=featured_filter)
+    else:
+        listings = TeamManagers.objects.all()
+
+    if request.method == 'POST':
+        form = PlayerBattleForm(request.POST)
+
+        if form.is_valid():
+
+            # Grab the user and challenged player for the data filter query
+            current_user = request.user.pk
+            # current_user2 = get_object_or_404(BadgeAwards, userId_id=request.user.pk)
+            challenged_player = form.cleaned_data['player_to_battle'].user_id
+            return player_battles(request, current_user, challenged_player)
         else:
-            listings = TeamManagers.objects.all()
+            print(form.errors)
 
-        if request.method == 'POST':
-            form = PlayerBattleForm(request.POST)
+    context_dict = {'listings': listings}
 
-            if form.is_valid():
-
-                # Grab the user and challenged player for the data filter query
-                current_user=request.user.pk
-                # current_user2 = get_object_or_404(BadgeAwards, userId_id=request.user.pk)
-                challenged_player = form.cleaned_data['player_to_battle'].user_id
-                return player_battles(request, current_user, challenged_player)
-            else:
-                print(form.errors)
-
-        context_dict = {'listings': listings}
-
-        return render(request, template_name, {'form': form}, context_dict)
+    return render(request, template_name, {'form': form}, context_dict)
 
 
+# Player Battles function - takes in a user_id and and a challenging player
 def player_battles(request, current_user_id, challenged_player_id):
 
-    # Get all badge Awards
-    q = BadgeAwards.objects.all()
-    # query filter just the current users badges
-    qcurrent = q.filter(userId_id=current_user_id)
-    max = qcurrent.aggregate(Max('score'))
-    min = qcurrent.aggregate(Min('score'))
-    # create a seperate query filter for challenges
-    qchallenged = q.filter(userId_id=challenged_player_id)
-
-    context_dict = {'current_player': qcurrent, 'challenged_player': qchallenged}
+    context_dict = {'loggedin_player_scores': get_battles_scores(current_user_id), 'challenger_scores': get_battles_scores(challenged_player_id)}
     response = render(request, 'member/playerbattles.html', context_dict)
     return response
+
+
+# get battle scrore based on userid - returns a dictionary
+def get_battles_scores(player_user_id):
+    # Toe Taps Scores
+    toe_taps_inside = get_maxscore_by_badge_name(player_user_id, 'Toe Taps Inside Foot')
+    toe_taps_push_pull = get_maxscore_by_badge_name(player_user_id, 'Toe Taps Push Pull')
+    toe_taps_side_drags = get_maxscore_by_badge_name(player_user_id, 'Toe Taps Side Drags')
+    toe_taps_soles = get_maxscore_by_badge_name(player_user_id, 'Toe Taps Soles')
+    toe_taps_stepovers = get_maxscore_by_badge_name(player_user_id, 'Toe Taps Stepovers')
+    # Kickup Scores
+    kickups_left = get_maxscore_by_badge_name(player_user_id, 'Kickups Both Feet')
+    kickups_right = get_maxscore_by_badge_name(player_user_id, 'Kickups Left Foot')
+    kickups_both = get_maxscore_by_badge_name(player_user_id, 'Kickups Right Foot')
+    # Turns Scores
+    turns_cryuff = get_maxscore_by_badge_name(player_user_id, 'Turns Cryuff')
+    turns_dragback = get_maxscore_by_badge_name(player_user_id, 'Turns Dragback')
+    turns_hooks = get_maxscore_by_badge_name(player_user_id, 'Turns Hooks')
+    turns_ronaldo_chop = get_maxscore_by_badge_name(player_user_id, 'Turns Ronaldo-chop')
+    turns_stepovers = get_maxscore_by_badge_name(player_user_id, 'Turns Stepover')
+    turns_zidane = get_maxscore_by_badge_name(player_user_id, 'Turns Zidane')
+    battlescores_dict = \
+        {
+            'toe_taps_inside': toe_taps_inside,
+            'toe_taps_push_pull': toe_taps_push_pull,
+            'toe_taps_side_drags': toe_taps_side_drags,
+            'toe_taps_soles': toe_taps_soles,
+            'toe_taps_stepovers': toe_taps_stepovers,
+            'kickups_left': kickups_left,
+            'kickups_right': kickups_right,
+            'kickups_both': kickups_both,
+            'turns_cryuff': turns_cryuff,
+            'turns_dragback': turns_dragback,
+            'turns_hooks': turns_hooks,
+            'turns_ronaldo_chop': turns_ronaldo_chop,
+            'turns_stepovers': turns_stepovers,
+            'turns_zidane': turns_zidane
+        }
+    return battlescores_dict
+
+
+def get_maxscore_by_badge_name(user_id, badge_name):
+    # Get all badge Awards for a given player
+    q = BadgeAwards.objects.filter(userId_id=user_id)
+    # query filter - get specific badgename dictionary
+    badges_by_name = q.filter(badgeId__name=badge_name)
+    #  Get the max from the filtered list
+    if badges_by_name.count() == 0:
+        max_score = 0
+    else:
+        max_score = badges_by_name.aggregate(Max('score'))
+        max_score = int(max_score['score__max'])
+    return max_score
 
 
 def update_user(request):
@@ -283,7 +329,6 @@ def get_badge_dictionaries_levels(request, current_user_only):
     # Get a list of User
     q = UserMember.objects.all()
 
-
     curr_user = UserMember.objects.all()
     curr_user = curr_user.filter(user_id=current_user)
 
@@ -301,13 +346,11 @@ def get_badge_dictionaries_levels(request, current_user_only):
     # Get Percentages
     badgedata = get_percentages_of_categories(request)
 
-
-
-
     # chuck it all in some context dictionaries for the render object
     context_dict = {'badgecounts': badge_counts, 'bronzebadges': bronze_badge_urls, 'silverbadges': silver_badge_urls,
                     'goldbadges': gold_badge_urls, 'meritbadges': merit_badge_urls, 'playerrating': player_rating,
-                    'users': q, 'badgedata': badgedata, 'badge_awards': badge_awards_list, 'player_awards': player_awards, 'current_user': curr_user}
+                    'users': q, 'badgedata': badgedata, 'badge_awards': badge_awards_list,
+                    'player_awards': player_awards, 'current_user': curr_user}
     return context_dict
 
 
@@ -489,8 +532,6 @@ def add_member(request):
             print(form.errors)
 
     return render(request, 'member/add_member.html', {'form': form})
-
-
 
 
 class ListContactView(ListView):
