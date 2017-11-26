@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load static %}
+{% load member_template_tags %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,58 +23,102 @@
 <body>
 
 
-<div class="wrapper clearfix">
-    <div class="title-box">
-        <img class="img-centre" src="{% static "images/woodkirk-trans.png" %}" alt="wvfc" height="50px">Player Battles
-    </div>
+<div class="clearfix">
 
-    <div class="player-0-panel">
-        <div class="player-name" id="name-0">Cameron Macdonald</div>
+    {% if loggedin_player_scores %}
+
+        <div class="player-0-panel">
+        {% for player in loggedin_player %}
+            <div class="player-name" id="name-0">{{ player.full_name }} </div>
+
         <img class="Absolute-Center" src="{% static "images/vs.png" %}" alt="vs" height="75px">
-        <!--                Add in score later ... <div class="player-score" id="score-0">43</div>-->
-        <img class="img-centre" src="{% static "images/skills_profile/cameron-macdonald.png" %}" alt="player-name" height="50%">
+        <img class="img-centre" src="/member/media/{{ player.picture_skill_profile }}" alt="player-name"
+             height="50%">
+        {% endfor %}
+        {#        Toe Taps#}
         <ul class="list-group">
-            <li class="list-group-item">Kickups <span class="badge badge">120</span></li>
-            <li class="list-group-item">ToeTaps <span class="badge">54</span></li>
-            <li class="list-group-item">Cryuff Turns <span class="badge">3</span></li>
-            <li class="list-group-item">Dragback Turns <span class="badge">3</span></li>
-            <li class="list-group-item">Stepovers <span class="badge">98</span></li>
+            <li class="list-group-item list-group-item-info">Toe Taps Inside<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"toe_taps_inside" }} </span></li>
+            <li class="list-group-item list-group-item-info">Toe Taps Push Pull<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"toe_taps_push_pull" }} </span></li>
+            <li class="list-group-item list-group-item-info">Toe Taps Side Drags<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"toe_taps_side_drags" }} </span></li>
+            <li class="list-group-item list-group-item-info">Toe Taps Soles<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"toe_taps_soles" }} </span></li>
         </ul>
-        <!--
-            <div class="player-current-box">
-                <div class="player-current-label">Current</div>
-                <div class="player-current-score" id="current-0">11</div>
-            </div>
--->
+        {#        Kickups#}
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-warning">Kickups - Left<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"kickups_left" }} </span></li>
+            <li class="list-group-item list-group-item-warning">Kickups - Right<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"kickups_right" }} </span></li>
+            <li class="list-group-item list-group-item-warning">Kickups - Both<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"kickups_both" }} </span></li>
+        </ul>
+        {#        Turns#}
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger">Turns - Cryuff<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"turns_cryuff" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Dragbacks<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"turns_dragback" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Hooks<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"turns_hooks" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Ronaldo-Chop<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"turns_ronaldo_chop" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Stepovers<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"turns_stepovers" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Zidane<span
+                    class="badge badge"> {{ loggedin_player_scores | getItem:"turns_zidane" }} </span></li>
+        </ul>
+    {% endif %}
+
     </div>
 
 
     <div class="player-1-panel">
-        <div class="player-name" id="name-1">Oscar Booth</div>
+        {% for player in challenged_player %}
+            <div class="player-name" id="name-0">{{ player.full_name }} </div>
 
-        <img class="img-centre" src="{% static "images/skills_profile/oscar-booth.png" %}" alt="player-name" height="50%">
+        <img class="img-centre" src="/member/media/{{ player.picture_skill_profile }}" alt="player-name"
+             height="50%">
+        {% endfor %}
 
+        {#        Toe Taps#}
         <ul class="list-group">
-            <li class="list-group-item">Kickups <span class="badge">145</span></li>
-            <li class="list-group-item">ToeTaps <span class="badge">76</span></li>
-            <li class="list-group-item">Cryuff Turns <span class="badge">54</span></li>
-            <li class="list-group-item">Dragback Turns <span class="badge">30</span></li>
-            <li class="list-group-item">Stepovers <span class="badge">80</span></li>
+            <li class="list-group-item list-group-item-info">Toe Taps Inside<span
+                    class="badge badge"> {{ challenger_scores | getItem:"toe_taps_inside" }} </span></li>
+            <li class="list-group-item list-group-item-info">Toe Taps Push Pull<span
+                    class="badge badge"> {{ challenger_scores | getItem:"toe_taps_push_pull" }} </span></li>
+            <li class="list-group-item list-group-item-info">Toe Taps Side Drags<span
+                    class="badge badge"> {{ challenger_scores | getItem:"toe_taps_side_drags" }} </span></li>
+            <li class="list-group-item list-group-item-info">Toe Taps Soles<span
+                    class="badge badge"> {{ challenger_scores | getItem:"toe_taps_soles" }} </span></li>
         </ul>
-        <!--               Add in score later <div class="player-score" id="score-1">72</div>-->
-        <!--
-            <div class="player-current-box">
-                <div class="player-current-label">Current</div>
-                <div class="player-current-score" id="current-1">0</div>
-            </div>
--->
+        {#        Kickups#}
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-warning">Kickups - Left<span
+                    class="badge badge"> {{ challenger_scores | getItem:"kickups_left" }} </span></li>
+            <li class="list-group-item list-group-item-warning">Kickups - Right<span
+                    class="badge badge"> {{ challenger_scores | getItem:"kickups_right" }} </span></li>
+            <li class="list-group-item list-group-item-warning">Kickups - Both<span
+                    class="badge badge"> {{ challenger_scores | getItem:"kickups_both" }} </span></li>
+        </ul>
+        {#        Turns#}
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger">Turns - Cryuff<span
+                    class="badge badge"> {{ challenger_scores | getItem:"turns_cryuff" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Dragbacks<span
+                    class="badge badge"> {{ challenger_scores | getItem:"turns_dragback" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Hooks<span
+                    class="badge badge"> {{ challenger_scores | getItem:"turns_hooks" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Ronaldo-Chop<span
+                    class="badge badge"> {{ challenger_scores | getItem:"turns_ronaldo_chop" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Stepovers<span
+                    class="badge badge"> {{ challenger_scores | getItem:"turns_stepovers" }} </span></li>
+            <li class="list-group-item list-group-item-danger">Turns - Zidane<span
+                    class="badge badge"> {{ challenger_scores | getItem:"turns_zidane" }} </span></li>
+        </ul>
     </div>
-
-    <!--            <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>-->
-    <!--            <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>-->
-    <!--            <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>-->
-
-    <!--            <img src="dice-5.png" alt="Dice" class="dice">-->
 </div>
 
 <script src="app.js"></script>
