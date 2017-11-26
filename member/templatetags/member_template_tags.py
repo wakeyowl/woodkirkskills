@@ -24,6 +24,6 @@ def getCategoryCompletion(list, key):
         return value
 
 
-@register.filter(name='lookup')
-def get_item(dictionary, key):
+@register.filter(name='getItem')
+def getItem(dictionary, key):
     return dictionary.get(key)

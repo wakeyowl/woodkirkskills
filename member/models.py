@@ -169,7 +169,7 @@ class BadgeAwards(models.Model):
 
 
     class Meta:
-        unique_together = ('badgeId', 'userId',)
+        unique_together = ('badgeId', 'userId', 'dateAwarded')
         verbose_name_plural = "Badge Awards"
         ordering = ['userId']
 

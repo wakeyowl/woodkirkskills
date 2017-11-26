@@ -110,8 +110,12 @@ def player_battles_menu(request, template_name='member/player_battle_form.html')
 
 # Player Battles function - takes in a user_id and and a challenging player
 def player_battles(request, current_user_id, challenged_player_id):
-
-    context_dict = {'loggedin_player_scores': get_battles_scores(current_user_id), 'challenger_scores': get_battles_scores(challenged_player_id)}
+    logged_in_player = get_player_details(current_user_id)
+    challenged_player = get_player_details(challenged_player_id)
+    context_dict = {'loggedin_player_scores': get_battles_scores(current_user_id),
+                    'challenger_scores': get_battles_scores(challenged_player_id),
+                    'challenged_player': challenged_player,
+                    'loggedin_player': logged_in_player}
     response = render(request, 'member/playerbattles.html', context_dict)
     return response
 
@@ -154,6 +158,9 @@ def get_battles_scores(player_user_id):
         }
     return battlescores_dict
 
+def get_player_details(user_id):
+    player = UserMember.objects.filter(user_id=user_id)
+    return player
 
 def get_maxscore_by_badge_name(user_id, badge_name):
     # Get all badge Awards for a given player
