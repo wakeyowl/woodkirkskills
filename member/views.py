@@ -96,16 +96,17 @@ def player_battles_menu(request, template_name='member/player_battle_form.html')
         if form.is_valid():
 
             # Grab the user and challenged player for the data filter query
-            current_user = request.user.pk
-            # current_user2 = get_object_or_404(BadgeAwards, userId_id=request.user.pk)
+            # current_user = request.user.pk
+            current_user = get_object_or_404(User, id=request.user.pk)
+            current_user = current_user.id
             challenged_player = form.cleaned_data['player_to_battle'].user_id
             return player_battles(request, current_user, challenged_player)
         else:
             print(form.errors)
+    current_user = get_player_details(request.user.pk)
+    context_dict = {'listings': listings, 'current_user': current_user, 'form': form}
 
-    context_dict = {'listings': listings}
-
-    return render(request, template_name, {'form': form}, context_dict)
+    return render(request, template_name, context_dict)
 
 
 # Player Battles function - takes in a user_id and and a challenging player

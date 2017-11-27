@@ -10,12 +10,13 @@
 
     <h1>Select a Player to Challenge</h1>
     <div>
-        {% for user in current_user %}
-            {{ user.name }}
-        {% endfor %}
         <div class="form-group">
             <form role="form" action="." method="post" enctype="multipart/form-data">
                 {% csrf_token %}
+{#            TODO: Add a nicer form with images#}
+                {% for user in current_user %}
+                    {{ user.full_name }}
+                {% endfor %}
                 {% bootstrap_form form %}
                 <button class="btn btn-primary" input type="submit">See Stats!</button>
             </form>
