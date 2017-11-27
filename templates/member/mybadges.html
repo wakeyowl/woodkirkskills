@@ -75,7 +75,7 @@
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-10"> <span class="badge"
-                                                              style="font-size: 40px">{{ player_awards|lookup:'potm' }}</span>
+                                                              style="font-size: 40px">{{ player_awards|getItem:'potm' }}</span>
                                     Player of The Match
                                     <span class="fa fa-certificate text-warning" aria-hidden="true"
                                           style="font-size: 40px; vertical-align: bottom;"></span>
@@ -89,7 +89,7 @@
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-10"> <span class="badge"
-                                                              style="font-size: 40px">{{ player_awards|lookup:'clean_sheets' }}</span>
+                                                              style="font-size: 40px">{{ player_awards|getItem:'clean_sheets' }}</span>
                                     Clean Sheets
                                     <span class="fa fa-shield text-warning" aria-hidden="true"
                                           style="font-size: 40px; vertical-align: bottom;"></span>
@@ -102,7 +102,7 @@
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-10"><span class="badge"
-                                                             style="font-size: 40px">{{ player_awards|lookup:'goals' }}</span>
+                                                             style="font-size: 40px">{{ player_awards|getItem:'goals' }}</span>
                                     Goals <span
                                             class="fa fa-futbol-o text-warning" aria-hidden="true"
                                             style="font-size: 35px; vertical-align: bottom;"></span></div>
